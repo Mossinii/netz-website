@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETZ | Tecnologia que Protege, Estrutura que Transforma</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Exo+2:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos personalizados e fontes */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #CCCCCC;
+        }
+        .font-exo {
+            font-family: 'Exo 2', sans-serif;
+        }
+        /* Efeito de imagem de fundo no Hero */
+        .hero-bg {
+            background-image: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1665686306574-1ace09918530?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(0, 123, 255, 0.5);
+        }
+        .service-card, .faq-item, .testimonial-card {
+            border: 1px solid #2a2a2a;
+            background-color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover, .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: #007BFF;
+            box-shadow: 0 15px 25px -10px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Estilos para a Animação de Fade-in com JS */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Estilos do Acordeão de FAQ */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        /* Estilos do Carrossel de Logos */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .scroller-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+        .scroller[data-animated="true"]:hover .scroller-inner {
+            animation-play-state: paused;
+        }
+
+    </style>
+</head>
+<body class="bg-[#121212]">
+
+    <!-- Cabeçalho -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-black/30 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-exo font-bold text-white tracking-widest">
+                N<span class="text-[#007BFF]">E</span>TZ
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#empresarial" class="text-gray-300 hover:text-white transition">Para Empresas</a>
+                <a href="#pessoal" class="text-gray-300 hover:text-white transition">Para Você</a>
+                <a href="#sobre" class="text-gray-300 hover:text-white transition">A NETZ</a>
+                <a href="#depoimentos" class="text-gray-300 hover:text-white transition">Clientes</a>
+                <a href="#faqs" class="text-gray-300 hover:text-white transition">FAQs</a>
+            </nav>
+            <a href="#contato" class="hidden md:block bg-[#007BFF] text-white font-bold py-2 px-5 rounded-md cta-button">
+                Agende sua Análise
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/80">
+            <a href="#empresarial" class="block text-center py-3 text-white">Para Empresas</a>
+            <a href="#pessoal" class="block text-center py-3 text-white">Para Você</a>
+            <a href="#sobre" class="block text-center py-3 text-white">A NETZ</a>
+            <a href="#depoimentos" class="block text-center py-3 text-white">Clientes</a>
+            <a href="#faqs" class="block text-center py-3 text-white">FAQs</a>
+            <a href="#contato" class="block text-center py-3 text-white">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center p-6 hero-bg">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-exo font-bold text-white uppercase tracking-wider mb-4 leading-tight">
+                    Sistemas lentos,<br>vendas perdidas,<br><span class="text-[#007BFF]">nós resolvemos.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 font-poppins max-w-2xl mx-auto mb-8">
+                    Garantimos a estabilidade e a velocidade que seu negócio precisa para crescer sem interrupções. Chega de prejuízo.
+                </p>
+                <a href="#contato" class="bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button inline-block">
+                    QUERO PROTEGER MEU NEGÓCIO
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção Serviços B2B -->
+        <section id="empresarial" class="py-20 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6 text-center">
+                <div class="fade-in-element">
+                    <h2 class="text-3xl font-poppins font-semibold text-white mb-2">Para Empresas: A Estrutura que Liberta</h2>
+                    <p class="text-gray-400 mb-12">Nossas soluções para sua tranquilidade e crescimento empresarial.</p>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Card: Diagnóstico -->
+                    <div class="service-card bg-[#222] rounded-lg p-8 flex flex-col fade-in-element">
+                        <h3 class="text-2xl font-bold text-white text-left">Raio-X NETZ: Diagnóstico de Vulnerabilidades</h3>
+                        <p class="mt-4 flex-grow text-left">O que você não vê na sua rede pode quebrar sua empresa. Nós mostramos a você, de graça.</p>
+                        <ul class="text-sm mt-6 space-y-2 list-disc list-inside text-left">
+                            <li>Análise de 15 pontos críticos da rede</li>
+                            <li>Verificação de segurança dos dados</li>
+                            <li>Análise de performance dos computadores</li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-gray-700 text-left">
+                            <p class="text-sm">Resultado: <span class="text-gray-300">Um mapa claro dos seus riscos e oportunidades.</span></p>
+                            <p class="text-5xl font-black text-[#007BFF] mt-2">GRATUITO</p>
+                            <p class="text-xs text-gray-400">(Agendamento limitado)</p>
+                        </div>
+                    </div>
+                    <!-- Card: Estruturação -->
+                    <div class="service-card bg-[#222] rounded-lg p-8 flex flex-col fade-in-element" style="transition-delay: 200ms;">
+                        <h3 class="text-2xl font-bold text-white text-left">NETZ Core: Estruturação de Rede & CFTV</h3>
+                        <p class="mt-4 flex-grow text-left">O caos nos cabos e a falta de monitoramento são portas abertas para prejuízos e falhas de segurança.</p>
+                        <ul class="text-sm mt-6 space-y-2 list-disc list-inside text-left">
+                            <li>Organização profissional de racks</li>
+                            <li>Cabeamento estruturado</li>
+                            <li>Instalação e configuração de CFTV</li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-gray-700 text-left">
+                             <p class="text-sm">Resultado: <span class="text-gray-300">Infraestrutura limpa, segura e pronta para crescer.</span></p>
+                            <p class="text-3xl font-black text-[#39FF14] mt-2">Sob Consulta</p>
+                            <p class="text-xs text-gray-400">(Cada projeto é uma fortaleza única)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Serviços B2C -->
+        <section id="pessoal" class="py-20 bg-[#121212]">
+            <div class="container mx-auto px-6 text-center">
+                <div class="fade-in-element">
+                    <h2 class="text-3xl font-poppins font-semibold text-white mb-2">Para Você: Soluções de Performance Pessoal</h2>
+                    <p class="text-gray-400 mb-12">Destrave a máxima velocidade do seu equipamento para o trabalho ou lazer.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="service-card bg-[#222] p-8 rounded-lg text-left flex flex-col fade-in-element">
+                        <h3 class="text-xl font-semibold text-[#007BFF] mb-2">NETZ Up!</h3>
+                        <p class="flex-grow">Seu computador lento está matando sua produtividade. Ressuscitamos a velocidade dele com uma otimização completa do sistema.</p>
+                        <p class="text-3xl font-bold text-[#39FF14] mt-6">R$ 197,00</p>
+                    </div>
+                    <div class="service-card bg-[#222] p-8 rounded-lg text-left flex flex-col fade-in-element" style="transition-delay: 200ms;">
+                        <h3 class="text-xl font-semibold text-[#007BFF] mb-2">NETZ Boost!</h3>
+                        <p class="flex-grow">A peça certa transforma sua ferramenta de trabalho. Instalação especializada de SSDs e Memória RAM para uma performance de topo.</p>
+                         <p class="text-3xl font-bold text-[#39FF14] mt-6">R$ 150,00</p>
+                         <p class="text-xs text-gray-500">(Mão de obra. Peças não incluídas)</p>
+                    </div>
+                    <div class="service-card bg-[#222] p-8 rounded-lg text-left flex flex-col fade-in-element" style="transition-delay: 400ms;">
+                        <h3 class="text-xl font-semibold text-[#007BFF] mb-2">NETZ Link!</h3>
+                        <p class="flex-grow">O Wi-Fi não chega em toda a casa? Fazemos o diagnóstico da sua rede e apresentamos a solução para uma cobertura total e estável.</p>
+                        <p class="text-3xl font-bold text-[#39FF14] mt-6">R$ 220,00</p>
+                        <p class="text-xs text-gray-500">(Visita + Diagnóstico)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Prova Social -->
+        <section id="depoimentos" class="py-20 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6 text-center">
+                 <div class="fade-in-element">
+                    <h2 class="text-3xl font-poppins font-semibold text-white mb-2">A Confiança que Gera Resultados</h2>
+                    <p class="text-gray-400 mb-12">Veja o que nossos clientes dizem sobre a parceria com a NETZ.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="testimonial-card bg-[#222] p-8 rounded-lg text-left fade-in-element">
+                        <p class="italic">"Desde que a NETZ assumiu nosso TI, a palavra 'sistema lento' desapareceu do nosso vocabulário. Ganhamos produtividade e, principalmente, paz de espírito."</p>
+                        <p class="text-white font-bold mt-4">- João S., Diretor de E-commerce</p>
+                    </div>
+                    <div class="testimonial-card bg-[#222] p-8 rounded-lg text-left fade-in-element" style="transition-delay: 200ms;">
+                        <p class="italic">"Meu notebook de trabalho parecia condenado. O serviço de otimização da NETZ o deixou mais rápido do que quando era novo. Incrível!"</p>
+                        <p class="text-white font-bold mt-4">- Mariana C., Designer Freelancer</p>
+                    </div>
+                </div>
+                <div class="mt-16 fade-in-element">
+                    <h3 class="text-xl text-gray-400 mb-8">Empresas que confiam na NETZ para sua estrutura tecnológica:</h3>
+                    <div class="scroller w-full max-w-4xl mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]" data-animated="true">
+                        <div class="scroller-inner">
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Solarius Group</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">LuminaTech</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Argento Consultoria</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">VittaCare</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">NovaPixel Agency</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Ironclad Industries</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">ApexCorp</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Elevare Labs</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Veritas Legal</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Medici Health</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Blueprint Creative</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Titan Manufacturing</p>
+                             <!-- Duplicated for seamless loop -->
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Solarius Group</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">LuminaTech</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Argento Consultoria</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">VittaCare</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">NovaPixel Agency</p>
+                             <p class="font-exo text-2xl text-gray-400 mx-8">Ironclad Industries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="sobre" class="py-20 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 fade-in-element">
+                <div class="md:w-1/3 text-center">
+                    <img loading="lazy" src="https://placehold.co/300x300/1a1a1a/007BFF?text=NETZ" alt="Fundador da NETZ" class="rounded-full mx-auto border-4 border-[#007BFF]">
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-poppins font-semibold text-white mb-4">Nós cuidamos da tecnologia, você cuida do seu crescimento.</h2>
+                    <p class="mb-4">A NETZ nasceu da convicção de que a tecnologia não deve ser uma fonte de estresse, mas um catalisador para a liberdade e o crescimento. Nossa missão é entregar estrutura e segurança para que pequenos e médios empresários possam focar no que fazem de melhor: expandir seus negócios.</p>
+                    <p class="text-white font-semibold">Fundador, NETZ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção FAQs (Acordeão) -->
+        <section id="faqs" class="py-20 bg-[#121212]">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-3xl font-poppins font-semibold text-white">Perguntas Frequentes</h2>
+                </div>
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-[#1a1a1a] rounded-lg fade-in-element">
+                        <button class="faq-toggle flex justify-between items-center w-full p-6 text-left">
+                            <h3 class="text-xl font-semibold text-white">Como a NETZ garante a segurança dos dados da minha empresa?</h3>
+                            <svg class="faq-toggle-icon w-6 h-6 text-[#007BFF] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p>Utilizamos uma abordagem em camadas com soluções avançadas de segurança, como firewalls de última geração, criptografia de ponta a ponta e monitoramento contínuo de ameaças, para proteger seus dados 24/7.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-[#1a1a1a] rounded-lg fade-in-element" style="transition-delay: 200ms;">
+                        <button class="faq-toggle flex justify-between items-center w-full p-6 text-left">
+                            <h3 class="text-xl font-semibold text-white">Como a NETZ melhora a infraestrutura do meu negócio?</h3>
+                             <svg class="faq-toggle-icon w-6 h-6 text-[#007BFF] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p>Oferecemos soluções personalizadas que aumentam a segurança, a produtividade e a eficiência da sua infraestrutura. Realizamos desde a organização de racks até a configuração de servidores, sempre com suporte dedicado.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-[#1a1a1a] rounded-lg fade-in-element" style="transition-delay: 400ms;">
+                        <button class="faq-toggle flex justify-between items-center w-full p-6 text-left">
+                            <h3 class="text-xl font-semibold text-white">Qual o diferencial do suporte da NETZ?</h3>
+                             <svg class="faq-toggle-icon w-6 h-6 text-[#007BFF] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p>Nosso suporte é proativo. Não esperamos o problema acontecer. Monitoramos seus sistemas constantemente para prever falhas e agimos antes que elas afetem seu negócio, garantindo máxima disponibilidade.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="py-20 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6 max-w-2xl text-center fade-in-element">
+                <h2 class="text-3xl font-poppins font-semibold text-white mb-2">Pronto para transformar seu TI?</h2>
+                <p class="text-gray-400 mb-8">Nossa equipe entrará em contato em breve para agendar sua análise gratuita e sem compromisso.</p>
+                
+                <form action="#" method="POST" class="space-y-6 text-left">
+                    <input type="text" id="contact-name" placeholder="Seu nome" class="w-full bg-[#222] border border-[#333] rounded-md p-3 text-white focus:outline-none focus:ring-2 focus:ring-[#007BFF]">
+                    <input type="email" id="contact-email" placeholder="Seu melhor e-mail" class="w-full bg-[#222] border border-[#333] rounded-md p-3 text-white focus:outline-none focus:ring-2 focus:ring-[#007BFF]">
+                    <textarea id="problem-description" placeholder="Descreva seu problema ou necessidade aqui..." rows="4" class="w-full bg-[#222] border border-[#333] rounded-md p-3 text-white focus:outline-none focus:ring-2 focus:ring-[#007BFF]"></textarea>
+                    
+                    <button type="submit" class="w-full bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button">
+                        AGENDAR ANÁLISE AGORA
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 NETZ Tecnologia. Todos os direitos reservados.</p>
+            <p>CNPJ MEI: 61.088.247/0001-04</p>
+            <div class="mt-4 flex justify-center items-center flex-wrap gap-x-6 gap-y-2">
+                <a href="#" class="hover:text-[#007BFF]">LinkedIn</a>
+                <a href="https://instagram.com/netztecnologia" target="_blank" class="hover:text-[#007BFF]">Instagram</a>
+                <a href="https://wa.me/5554993494999" target="_blank" class="hover:text-[#007BFF]">(54) 99349-4999</a>
+                <a href="#" class="text-xs hover:text-[#007BFF]">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5554993494999" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.223l.215.326-1.251 4.561 4.654-1.215.349.197z"/>
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica do Menu Mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // Efeito de sombra no header ao rolar a página
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('shadow-lg', window.scrollY > 50);
+            });
+
+            // Lógica da Animação de Fade-in ao Rolar
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-element').forEach((el) => observer.observe(el));
+
+            // Lógica do Acordeão de FAQ
+            const faqToggles = document.querySelectorAll('.faq-toggle');
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const answer = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-toggle-icon');
+                    
+                    const isOpening = !answer.style.maxHeight;
+
+                    faqToggles.forEach(otherToggle => {
+                        if (otherToggle !== toggle) {
+                            otherToggle.nextElementSibling.style.maxHeight = null;
+                            otherToggle.querySelector('.faq-toggle-icon').style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    if (isOpening) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        answer.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
