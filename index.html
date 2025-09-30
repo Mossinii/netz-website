@@ -415,13 +415,10 @@
                 submitButton.innerHTML = 'Enviando...';
 
                 try {
-                    // ATENÇÃO: Troque 'http://localhost:3000' pelo URL do seu backend quando estiver online
-                    const response = await fetch('/api/send-email', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formData),
+                    const query = new URLSearchParams(formData).toString();
+                    
+                    const response = await fetch(`/api/send-email?${query}}`, {
+                        method: 'GET'
                     });
 
                     const result = await response.json();
