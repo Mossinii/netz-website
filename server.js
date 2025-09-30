@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
 // O vercel.json direciona /api/send-email para este arquivo,
 // então a rota POST deve corresponder a isso.
 app.get('/api/send-email', (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, email, message } = req.query;
 
   if (!name || !email || !message) {
     return res.status(400).json({ success: false, error: 'Todos os campos são obrigatórios.' });
