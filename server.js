@@ -62,10 +62,4 @@ app.get('/api/send-email', (req, res) => {
 
 // Exportamos o 'app' para a Vercel poder usá-lo.
 // NENHUM app.listen DEVE ESTAR AQUI.
-// module.exports = app;
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+module.exports = app;

@@ -547,7 +547,7 @@
                         message: messageInput.value.trim()
                     }).toString();
 
-                    const response = await fetch(`http://localhost:3000/api/send-email?${query}`, {
+                    const response = await fetch(`/api/send-email?${query}`, {
                         method: 'GET'
                     });
 
