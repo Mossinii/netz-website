@@ -45,15 +45,27 @@ app.get('/api/send-email', (req, res) => {
     `,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('ERRO INTERNO NO NODEMAILER:', error);
-      return res.status(500).json({ success: false, error: 'Falha ao enviar o e-mail.' });
-    }
+  try {
+    transporter.sendMail(mailOptions, (error, info) => {
+    if (error) throw error;
+    
+    console.log('E-mail enviado: ' + info.response);
     return res.status(200).json({ success: true, message: 'E-mail enviado com sucesso!' });
-  });
+    });
+  }
+  catch (error) {
+    console.log('ERRO INTERNO NO NODEMAILER:', error);
+    return res.status(500).json({ success: false, error: 'Falha ao enviar o e-mail.' });
+  }
+  
 });
 
 // Exportamos o 'app' para a Vercel poder usá-lo.
 // NENHUM app.listen DEVE ESTAR AQUI.
-module.exports = app;
+// module.exports = app;
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
+});
