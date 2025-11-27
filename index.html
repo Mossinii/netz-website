@@ -49,9 +49,7 @@
             box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.07);
         }
 
-        /* --- FUNCIONALIDADES NOVAS (Correções) --- */
-        
-        /* Correção do Acordeão (FAQ e Planos) */
+        /* --- FUNCIONALIDADES (Acordeão e Animações) --- */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
@@ -64,14 +62,13 @@
             transform: rotate(180deg);
         }
 
-        /* Animações */
         .fade-in-element {
             opacity: 0; transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
 
-        /* Scroll Infinito */
+        /* Scroll Infinito Clientes */
         .scroller-inner { display: flex; width: max-content; animation: scroll 40s linear infinite; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
     </style>
@@ -79,6 +76,7 @@
 
 <body class="bg-white">
 
+    <!-- Header -->
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm border-b border-gray-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-3xl font-exo font-bold text-gray-900 tracking-widest">
@@ -111,6 +109,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="min-h-screen flex items-center justify-center text-center p-6 hero-bg">
             <div class="max-w-3xl pt-20">
                 <h1 class="text-5xl md:text-7xl font-exo font-bold text-gray-900 uppercase tracking-wider mb-4 leading-tight">
@@ -123,6 +122,7 @@
             </div>
         </section>
 
+        <!-- Números -->
         <section id="numeros" class="py-16 bg-gray-50 border-y border-gray-200">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center fade-in-element" id="counter-container">
@@ -146,6 +146,7 @@
             </div>
         </section>
 
+        <!-- Diferenciais -->
         <section id="diferenciais" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 fade-in-element">
@@ -178,6 +179,7 @@
             </div>
         </section>
 
+        <!-- Planos -->
         <section id="planos" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="text-center mb-16 fade-in-element">
@@ -187,7 +189,7 @@
                 
                 <div class="grid md:grid-cols-3 gap-8 items-start">
                     
-                    <!-- Plano Base (Correção JS e CSS mantida) -->
+                    <!-- Plano Base -->
                     <div class="service-card rounded-lg flex flex-col w-full fade-in-element">
                         <div class="p-8">
                             <h3 class="text-2xl font-bold text-gray-900">Plano Base</h3>
@@ -272,28 +274,49 @@
             </div>
         </section>
 
-        <section id="sobre" class="py-20 bg-white">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 fade-in-element">
-                <div class="md:w-1/2 text-center md:text-right">
-                    <div class="relative rounded-lg overflow-hidden border border-gray-200 inline-block">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=2069&auto=format&fit=crop" alt="Kauan Mossini" class="w-full max-w-md h-auto transition-all duration-500">
-                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent text-left">
-                            <p class="text-white font-bold text-lg">Kauan Mossini</p>
-                            <p class="text-sm text-[#007BFF]">Fundador & Especialista em Redes</p>
+        <!-- Sobre (BLOCO MELHORADO) -->
+        <section id="sobre" class="py-24 bg-white">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16 fade-in-element">
+                <!-- Coluna da Imagem -->
+                <div class="md:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-50 group">
+                        <!-- Imagem do CEO com fallback -->
+                        <img 
+                            src="image_9655fa.jpg" 
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop';" 
+                            alt="Kauan Mossini" 
+                            class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
+                        >
+                        <!-- Legenda Integrada -->
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
+                            <p class="text-white font-bold text-xl">Kauan Mossini</p>
+                            <p class="text-[#007BFF] font-semibold text-sm uppercase tracking-wide">CEO & Especialista Certificado</p>
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-poppins font-semibold text-gray-900 mb-4">Tecnologia que protege, estrutura que transforma.</h2>
-                    <p class="mb-4 text-gray-700">Fundada por <strong>Kauan Mossini</strong>, profissional com mais de 5 anos de experiência em infraestrutura e redes corporativas, a NETZ nasceu em Gramado com a missão de simplificar a tecnologia e entregar <strong>estabilidade real</strong>.</p>
-                    <p class="text-gray-700 mb-6">Unimos performance, segurança e atendimento humano — pra que sua operação funcione com confiança, sem surpresas. Hoje, atuamos em atendimentos presenciais e remotos, ajudando empresas locais a reduzir paradas, aumentar a eficiência e se proteger digitalmente.</p>
-                    <div class="flex items-center gap-2 text-[#39FF14] font-semibold text-sm">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+
+                <!-- Coluna do Texto -->
+                <div class="md:w-1/2 space-y-6">
+                    <h2 class="text-4xl font-poppins font-bold text-gray-900 leading-tight">
+                        Tecnologia que protege
+                        <br>
+                        <!-- Ajuste para "Estrutura que transforma" não quebrar -->
+                        <span class="text-[#007BFF] whitespace-nowrap">Estrutura que transforma</span>
+                    </h2>
+                    
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>
+                            Fundada por <strong>Kauan Mossini</strong>, profissional com mais de 5 anos de experiência em infraestrutura e redes corporativas, a NETZ nasceu em Gramado com a missão de simplificar a tecnologia e entregar <strong>estabilidade real</strong>.
+                        </p>
+                        <p>
+                            Unimos performance, segurança e atendimento humano — pra que sua operação funcione com confiança, sem surpresas. Hoje, atuamos em atendimentos presenciais e remotos, ajudando empresas locais a reduzir paradas, aumentar a eficiência e se proteger digitalmente.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Clientes -->
         <section id="depoimentos" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6 text-center">
                 <div class="fade-in-element">
@@ -328,6 +351,7 @@
             </div>
         </section>
 
+        <!-- FAQ -->
         <section id="faqs" class="py-20 bg-white">
             <div class="container mx-auto px-6 max-w-3xl">
                 <div class="text-center mb-12 fade-in-element">
@@ -360,6 +384,7 @@
             </div>
         </section>
 
+        <!-- Contato (Botão e Mensagem Corrigidos) -->
         <section id="contato" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6 max-w-2xl text-center fade-in-element">
                 <h2 class="text-3xl font-poppins font-semibold text-gray-900 mb-2">Pronto para transformar seu TI?</h2>
@@ -368,7 +393,8 @@
                     <input type="text" id="contact-name" name="name" placeholder="Seu nome" class="w-full bg-white border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF]" required>
                     <input type="text" id="contact-company" name="company" placeholder="Nome da sua Empresa (Opcional)" class="w-full bg-white border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF]">
                     <textarea id="problem-description" name="message" placeholder="Descreva sua necessidade..." rows="4" class="w-full bg-white border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF]" required></textarea>
-                    <button type="submit" class="w-full bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button">AGENDAR ANÁLISE (WHATSAPP)</button>
+                    <!-- BOTÃO LIMPO (SEM "WHATSAPP") -->
+                    <button type="submit" class="w-full bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button">INICIAR ATENDIMENTO</button>
                 </form>
             </div>
         </section>
@@ -400,7 +426,7 @@
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // 2. Smooth Scroll (Corrigido, sem #URL)
+            // 2. Smooth Scroll
             const navLinks = document.querySelectorAll('a[href^="#"]');
             
             navLinks.forEach(link => {
@@ -465,7 +491,7 @@
             }, { threshold: 0.5 });
             counters.forEach(counter => counterObserver.observe(counter));
 
-            // 6. Acordeões (Correção Definitiva)
+            // 6. Acordeões
             const accordions = document.querySelectorAll('.accordion-toggle');
 
             accordions.forEach(acc => {
@@ -486,7 +512,7 @@
                 });
             });
 
-            // 7. Formulário -> WhatsApp
+            // 7. Formulário -> WhatsApp (MENSAGEM LIMPA E CORRIGIDA)
             document.getElementById('contact-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -494,13 +520,16 @@
                 const company = document.getElementById('contact-company').value;
                 const desc = document.getElementById('problem-description').value;
                 
-                let msg = `*Olá NETZ, vim pelo site!* 👋\n\n`;
-                msg += `*Nome:* ${name}\n`;
-                if(company) msg += `*Empresa:* ${company}\n`;
-                msg += `*Preciso de:* ${desc}`;
+                // Mensagem formatada sem emojis problemáticos
+                // %0A força a quebra de linha no link do WhatsApp
+                let msg = `*Olá NETZ, vim pelo site!*`;
+                msg += `%0A%0A*Nome:* ${name}`;
+                if(company) msg += `%0A*Empresa:* ${company}`;
+                msg += `%0A*Preciso de:* ${desc}`;
 
                 const phone = "555493494999"; 
-                const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+                // Usamos diretamente 'msg' pois já tratamos o encoding básico
+                const url = `https://wa.me/${phone}?text=${msg}`;
                 window.open(url, '_blank');
             });
         });
