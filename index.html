@@ -32,10 +32,10 @@
 
         /* Hero com gradiente "Tech" sutil e imagem de fundo */
         .hero-bg {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 1)), url('https://images.unsplash.com/photo-1558494949-efc5e60dc3a0?q=80&w=2070&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1)), url('https://images.unsplash.com/photo-1558494949-efc5e60dc3a0?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efeito Parallax sutil */
+            background-attachment: fixed;
         }
 
         .cta-button { transition: all 0.3s ease; }
@@ -78,141 +78,132 @@
 
     <!-- Header Fixo -->
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-200">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo Limpa (Sem Badge) -->
-            <a href="#home" class="text-3xl font-exo font-bold text-gray-900 tracking-widest flex items-center gap-2">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo Limpa -->
+            <a href="#home" class="text-2xl md:text-3xl font-exo font-bold text-gray-900 tracking-widest flex items-center gap-2">
                 N<span class="text-[#007BFF]">E</span>TZ
             </a>
-            <nav class="hidden md:flex space-x-8 items-center text-sm font-medium">
+            <nav class="hidden md:flex space-x-6 items-center text-sm font-medium">
                 <a href="#metodo" class="text-gray-600 hover:text-[#007BFF] transition">Como Trabalhamos</a>
                 <a href="#seguranca" class="text-gray-600 hover:text-[#007BFF] transition">Cibersegurança</a>
                 <a href="#comparativo" class="text-gray-600 hover:text-[#007BFF] transition">Por que NETZ</a>
-                <a href="#planos" class="text-gray-600 hover:text-[#007BFF] transition">Planos MSP</a>
+                <a href="#planos" class="text-gray-600 hover:text-[#007BFF] transition">Planos</a>
                 <!-- Botão alterado para Avaliação -->
-                <a href="#contato" class="bg-[#007BFF] text-white font-bold py-2.5 px-6 rounded-md cta-button">Agendar Avaliação</a>
+                <a href="#contato" class="bg-[#007BFF] text-white font-bold py-2 px-5 rounded-md cta-button text-sm">Agendar Avaliação</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
         <!-- Menu Mobile -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 absolute w-full top-[73px]">
-            <a href="#metodo" class="block text-center py-4 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Como Trabalhamos</a>
-            <a href="#seguranca" class="block text-center py-4 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Cibersegurança</a>
-            <a href="#comparativo" class="block text-center py-4 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Por que NETZ</a>
-            <a href="#planos" class="block text-center py-4 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Planos</a>
-            <a href="#contato" class="block text-center py-4 text-[#007BFF] font-bold bg-gray-50">Agendar Avaliação</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 absolute w-full top-[60px]">
+            <a href="#metodo" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Como Trabalhamos</a>
+            <a href="#seguranca" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Cibersegurança</a>
+            <a href="#comparativo" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Por que NETZ</a>
+            <a href="#planos" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Planos</a>
+            <a href="#contato" class="block text-center py-3 text-[#007BFF] font-bold bg-gray-50">Agendar Avaliação</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section: Ultra Limpo -->
-        <section id="home" class="min-h-screen flex items-center justify-center text-center p-6 hero-bg pt-20">
-            <div class="max-w-4xl pt-10 fade-in-element is-visible">
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#007BFF] text-xs font-bold tracking-widest mb-4 uppercase border border-blue-100">Tecnologia que protege, estrutura que transforma</span>
-                <h1 class="text-5xl md:text-7xl font-exo font-bold text-gray-900 uppercase tracking-wide mb-6 leading-tight">
+        <!-- Hero Section: Compacto e Direto -->
+        <section id="home" class="min-h-[85vh] flex items-center justify-center text-center p-6 hero-bg pt-24">
+            <div class="max-w-4xl fade-in-element is-visible">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#007BFF] text-xs font-bold tracking-widest mb-6 uppercase border border-blue-100">Tecnologia que protege, estrutura que transforma</span>
+                <h1 class="text-4xl md:text-6xl font-exo font-bold text-gray-900 uppercase tracking-wide mb-8 leading-tight">
                     Sua empresa não pode<br><span class="text-[#007BFF]">parar.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-600 font-poppins max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Transformamos sua TI de um "centro de custos e problemas" para uma vantagem competitiva. 
-                    Monitoramento 24/7, segurança anti-ransomware e gestão estratégica.
-                </p>
-                <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="#planos" class="bg-[#007BFF] text-white font-bold py-4 px-10 rounded-md text-lg cta-button shadow-lg shadow-blue-500/30">BLINDAR MEU NEGÓCIO</a>
-                    <a href="#metodo" class="bg-white text-gray-700 border border-gray-300 font-bold py-4 px-10 rounded-md text-lg hover:bg-gray-50 transition">Entender o Método</a>
+                
+                <!-- Botões -->
+                <div class="flex flex-col md:flex-row gap-4 justify-center mb-10">
+                    <a href="#planos" class="bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button shadow-lg shadow-blue-500/30">BLINDAR MEU NEGÓCIO</a>
+                    <a href="#metodo" class="bg-white text-gray-700 border border-gray-300 font-bold py-3 px-8 rounded-md text-lg hover:bg-gray-50 transition">Entender o Método</a>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: COMO TRABALHAMOS (Visual de Processo) -->
-        <section id="metodo" class="py-24 bg-white">
+        <!-- Seção: COMO TRABALHAMOS (Espaços Reduzidos) -->
+        <section id="metodo" class="py-16 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 fade-in-element">
-                    <h2 class="text-3xl md:text-4xl font-poppins font-bold text-gray-900 mb-4">O Método NETZ</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Não "apagamos incêndios". Nós prevenimos que eles aconteçam. Veja como transformamos sua estrutura em 3 etapas.</p>
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">O Método NETZ</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm">Prevenção ativa. Veja como transformamos sua estrutura.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-8 relative max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 relative max-w-6xl mx-auto">
                     <!-- Linha conectora (Desktop apenas) -->
-                    <div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-gray-100 -z-10"></div>
+                    <div class="hidden md:block absolute top-10 left-0 w-full h-0.5 bg-gray-100 -z-10"></div>
 
                     <!-- Passo 1 -->
-                    <div class="method-card p-8 rounded-xl bg-white text-center fade-in-element">
-                        <div class="w-20 h-20 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-6 text-3xl font-bold shadow-sm border border-blue-100 relative z-10">1</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Diagnóstico & Auditoria</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">Mapeamos toda sua rede, identificamos gargalos de lentidão e brechas de segurança que você nem sabe que existem.</p>
+                    <div class="method-card p-6 rounded-xl bg-white text-center fade-in-element">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl font-bold shadow-sm border border-blue-100 relative z-10">1</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Diagnóstico & Auditoria</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Mapeamos toda sua rede, identificamos gargalos de lentidão e brechas de segurança que você nem sabe que existem.</p>
                     </div>
 
                     <!-- Passo 2 -->
-                    <div class="method-card p-8 rounded-xl bg-white text-center fade-in-element" style="transition-delay: 150ms;">
-                        <div class="w-20 h-20 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-6 text-3xl font-bold shadow-sm border border-blue-100 relative z-10">2</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Implementação & Blindagem</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">Corrigimos os erros, configuramos backups imutáveis e instalamos proteções corporativas (não antivírus gratuitos).</p>
+                    <div class="method-card p-6 rounded-xl bg-white text-center fade-in-element" style="transition-delay: 150ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl font-bold shadow-sm border border-blue-100 relative z-10">2</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Implementação</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Corrigimos os erros, configuramos backups imutáveis e instalamos proteções corporativas (não antivírus gratuitos).</p>
                     </div>
 
                     <!-- Passo 3 -->
-                    <div class="method-card p-8 rounded-xl bg-white text-center fade-in-element" style="transition-delay: 300ms;">
-                        <div class="w-20 h-20 mx-auto bg-[#007BFF] text-white rounded-full flex items-center justify-center mb-6 text-3xl font-bold shadow-lg ring-4 ring-blue-100 relative z-10">3</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Gestão Contínua (MSP)</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">Instalamos nossos agentes de monitoramento. Se um disco for falhar, nós sabemos antes e trocamos. Você nunca para.</p>
+                    <div class="method-card p-6 rounded-xl bg-white text-center fade-in-element" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 mx-auto bg-[#007BFF] text-white rounded-full flex items-center justify-center mb-4 text-2xl font-bold shadow-lg ring-4 ring-blue-100 relative z-10">3</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Gestão Contínua</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Monitoramento 24/7. Se um disco for falhar, nós sabemos antes e trocamos. Você nunca para.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: CIBERSEGURANÇA (Estilo Dark Mode Tech) -->
-        <section id="seguranca" class="py-24 bg-gray-900 text-white relative overflow-hidden">
+        <!-- Seção: CIBERSEGURANÇA (Estilo Dark Mode Tech - Compacto) -->
+        <section id="seguranca" class="py-16 bg-gray-900 text-white relative overflow-hidden">
             <!-- Detalhe de fundo -->
             <div class="absolute top-0 right-0 w-1/2 h-full bg-[#007BFF] opacity-5 transform skew-x-12"></div>
             
             <div class="container mx-auto px-6 relative z-10">
-                <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex flex-col md:flex-row items-center gap-10">
                     <div class="md:w-1/2 fade-in-element">
-                        <span class="text-[#39FF14] font-bold tracking-wider text-sm uppercase mb-2 block">Segurança Ofensiva e Defensiva</span>
-                        <h2 class="text-4xl font-exo font-bold mb-6">Proteção contra Ransomware e Sequestro de Dados</h2>
-                        <p class="text-gray-300 mb-6 leading-relaxed text-lg">
-                            Pequenas empresas são o alvo nº 1 de ataques digitais porque geralmente têm portas abertas. Na NETZ, trazemos segurança de nível bancário para o seu negócio local.
+                        <span class="text-[#39FF14] font-bold tracking-wider text-xs uppercase mb-2 block">Segurança Ofensiva e Defensiva</span>
+                        <h2 class="text-3xl font-exo font-bold mb-4">Anti-Ransomware & Proteção de Dados</h2>
+                        <p class="text-gray-300 mb-6 leading-relaxed text-sm">
+                            Pequenas empresas são o alvo nº 1 de ataques digitais. Trazemos segurança de nível bancário para o seu negócio.
                         </p>
-                        <ul class="space-y-4 mb-8">
+                        <ul class="space-y-3 mb-8">
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#39FF14] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <svg class="w-5 h-5 text-[#39FF14] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <div>
-                                    <strong class="block text-white">Backup Imutável na Nuvem</strong>
-                                    <span class="text-sm text-gray-400">Mesmo que invadam, seus dados estão salvos em um cofre digital externo.</span>
+                                    <strong class="block text-white text-sm">Backup Imutável na Nuvem</strong>
+                                    <span class="text-xs text-gray-400">Cofre digital externo contra sequestro de dados.</span>
                                 </div>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#39FF14] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <svg class="w-5 h-5 text-[#39FF14] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <div>
-                                    <strong class="block text-white">EDR e Antivírus Gerenciado</strong>
-                                    <span class="text-sm text-gray-400">Monitoramos comportamentos suspeitos em tempo real.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#39FF14] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div>
-                                    <strong class="block text-white">Gestão de Patches</strong>
-                                    <span class="text-sm text-gray-400">Mantemos Windows e sistemas sempre atualizados para fechar brechas.</span>
+                                    <strong class="block text-white text-sm">EDR e Antivírus Gerenciado</strong>
+                                    <span class="text-xs text-gray-400">Monitoramos comportamentos suspeitos em tempo real.</span>
                                 </div>
                             </li>
                         </ul>
-                        <a href="#contato" class="inline-block bg-[#39FF14] text-gray-900 font-bold py-3 px-8 rounded hover:bg-white transition-colors shadow-[0_0_20px_rgba(57,255,20,0.3)]">Solicitar Blindagem</a>
+                        <a href="#contato" class="inline-block bg-[#39FF14] text-gray-900 font-bold py-2.5 px-6 rounded hover:bg-white transition-colors text-sm shadow-[0_0_15px_rgba(57,255,20,0.2)]">Solicitar Blindagem</a>
                     </div>
                     
                     <!-- Elemento Visual Abstrato -->
-                    <div class="md:w-1/2 flex justify-center fade-in-element mt-10 md:mt-0">
-                         <div class="relative w-80 h-80">
+                    <div class="md:w-1/2 flex justify-center fade-in-element mt-6 md:mt-0">
+                         <div class="relative w-64 h-64">
                             <div class="absolute inset-0 border-4 border-[#007BFF] rounded-full opacity-20 animate-pulse"></div>
                             <div class="absolute inset-4 border-4 border-[#007BFF] rounded-full opacity-40"></div>
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <svg class="w-32 h-32 text-[#007BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                <svg class="w-24 h-24 text-[#007BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                             </div>
-                            <div class="absolute bottom-10 -left-10 bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20 shadow-2xl">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-3 h-3 bg-[#39FF14] rounded-full animate-ping"></div>
-                                    <p class="text-xs font-mono text-white">SISTEMA: PROTEGIDO<br>STATUS: MONITORANDO</p>
+                            <div class="absolute bottom-6 -left-6 bg-white/10 backdrop-blur-md p-3 rounded-lg border border-white/20 shadow-xl">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-[#39FF14] rounded-full animate-ping"></div>
+                                    <p class="text-[10px] font-mono text-white">SISTEMA: PROTEGIDO</p>
                                 </div>
                             </div>
                          </div>
@@ -222,40 +213,38 @@
         </section>
 
         <!-- Seção: AUTORIDADE / COMPARATIVO -->
-        <section id="comparativo" class="py-24 bg-gray-50">
+        <section id="comparativo" class="py-16 bg-gray-50">
             <div class="container mx-auto px-6 max-w-5xl">
-                <div class="text-center mb-16 fade-in-element">
-                    <h2 class="text-3xl font-poppins font-bold text-gray-900 mb-4">Suporte "Quebra-Conserta" vs. NETZ</h2>
-                    <p class="text-gray-600">Por que migrar para um modelo de Serviços Gerenciados (MSP)?</p>
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl font-poppins font-bold text-gray-900 mb-2">Tradicional vs. NETZ</h2>
+                    <p class="text-gray-600 text-sm">Por que migrar para Serviços Gerenciados (MSP)?</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 fade-in-element">
+                <div class="grid md:grid-cols-2 gap-6 fade-in-element">
                     <!-- Lado Antigo -->
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm opacity-80 hover:opacity-100 transition">
-                        <h3 class="text-xl font-bold text-gray-500 mb-6 flex items-center gap-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm opacity-80 hover:opacity-100 transition">
+                        <h3 class="text-lg font-bold text-gray-500 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             TI Tradicional
                         </h3>
-                        <ul class="space-y-4">
-                            <li class="flex gap-3 text-gray-600"><span class="cross-icon">✖</span> Reativo: Só age quando algo quebra.</li>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex gap-3 text-gray-600"><span class="cross-icon">✖</span> Reativo: Só age quando quebra.</li>
                             <li class="flex gap-3 text-gray-600"><span class="cross-icon">✖</span> Custo Variável: Surpresas no fim do mês.</li>
                             <li class="flex gap-3 text-gray-600"><span class="cross-icon">✖</span> Lucra com seus problemas.</li>
-                            <li class="flex gap-3 text-gray-600"><span class="cross-icon">✖</span> Tempo de inatividade alto.</li>
                         </ul>
                     </div>
 
                     <!-- Lado NETZ -->
-                    <div class="bg-white p-8 rounded-xl border-2 border-[#007BFF] shadow-xl relative overflow-hidden transform md:-translate-y-2">
-                        <div class="absolute top-0 right-0 bg-[#007BFF] text-white text-xs font-bold px-3 py-1 rounded-bl">RECOMENDADO</div>
-                        <h3 class="text-xl font-bold text-[#007BFF] mb-6 flex items-center gap-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="bg-white p-6 rounded-xl border-2 border-[#007BFF] shadow-xl relative overflow-hidden transform md:-translate-y-2">
+                        <div class="absolute top-0 right-0 bg-[#007BFF] text-white text-[10px] font-bold px-3 py-1 rounded-bl">RECOMENDADO</div>
+                        <h3 class="text-lg font-bold text-[#007BFF] mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Padrão NETZ (MSP)
                         </h3>
-                        <ul class="space-y-4">
+                        <ul class="space-y-3 text-sm">
                             <li class="flex gap-3 text-gray-800 font-medium"><span class="check-icon">✔</span> Proativo: Resolvemos antes de parar.</li>
                             <li class="flex gap-3 text-gray-800 font-medium"><span class="check-icon">✔</span> Custo Fixo Previsível.</li>
                             <li class="flex gap-3 text-gray-800 font-medium"><span class="check-icon">✔</span> Lucra com sua estabilidade.</li>
-                            <li class="flex gap-3 text-gray-800 font-medium"><span class="check-icon">✔</span> Foco estratégico no seu crescimento.</li>
                         </ul>
                     </div>
                 </div>
@@ -263,79 +252,76 @@
         </section>
 
         <!-- Planos MSP (Preços Estratégicos) -->
-        <section id="planos" class="py-24 bg-white">
+        <section id="planos" class="py-16 bg-white">
             <div class="container mx-auto px-6 max-w-6xl">
-                <div class="text-center mb-16 fade-in-element">
-                    <h2 class="text-3xl font-poppins font-semibold text-gray-900 mb-2">Planos de Gestão de TI</h2>
-                    <p class="text-gray-600">Escolha o nível de proteção ideal para o seu momento.</p>
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl font-poppins font-semibold text-gray-900 mb-2">Planos de Gestão</h2>
+                    <p class="text-gray-600 text-sm">Escolha o nível de proteção ideal.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-8 items-start">
+                <div class="grid md:grid-cols-3 gap-6 items-start">
                     
                     <!-- Plano 1: Essencial -->
                     <div class="service-card rounded-lg flex flex-col w-full fade-in-element hover:border-gray-300">
-                        <div class="p-8 pb-4">
-                            <h3 class="text-xl font-bold text-gray-900">NETZ Essencial</h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">Manutenção & Monitoramento</p>
-                            <div class="mt-6 flex items-baseline text-gray-900">
-                                <span class="text-sm text-gray-500 mr-1">A partir de</span>
+                        <div class="p-6 pb-2">
+                            <h3 class="text-lg font-bold text-gray-900">NETZ Essencial</h3>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-wide mt-1">Manutenção & Monitoramento</p>
+                            <div class="mt-4 flex items-baseline text-gray-900">
+                                <span class="text-xs text-gray-500 mr-1">A partir de</span>
                                 <span class="text-3xl font-exo font-black">R$ 90</span>
                             </div>
-                            <p class="text-xs text-gray-400 mt-2">/computador /mês</p>
                         </div>
-                        <div class="px-8 pb-8">
-                            <ul class="space-y-3 text-sm text-gray-600 mt-4 mb-8">
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monitoramento Básico 24/7</li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Gestão de Atualizações</li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Antivírus Gerenciado</li>
-                                <li class="flex items-center gap-2 text-gray-400"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Suporte Remoto incluso (Cobrado à parte)</li>
+                        <div class="px-6 pb-6">
+                            <ul class="space-y-2 text-xs text-gray-600 mt-2 mb-6">
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monitoramento Básico 24/7</li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Gestão de Atualizações</li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Antivírus Gerenciado</li>
+                                <li class="flex items-center gap-2 text-gray-400"><svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Suporte Remoto cobrado à parte</li>
                             </ul>
-                            <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Essencial')" class="w-full block bg-gray-100 text-gray-700 font-bold py-3 rounded-md hover:bg-gray-200 transition text-sm">Contratar Essencial</button>
+                            <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Essencial')" class="w-full block bg-gray-100 text-gray-700 font-bold py-2.5 rounded-md hover:bg-gray-200 transition text-xs">Contratar Essencial</button>
                         </div>
                     </div>
 
                     <!-- Plano 2: Completo (Destaque) -->
-                    <div class="service-card rounded-lg flex flex-col w-full fade-in-element border-[#007BFF] border-2 relative shadow-2xl transform md:-translate-y-4" style="transition-delay: 100ms;">
-                        <span class="absolute top-0 right-0 left-0 bg-[#007BFF] text-white text-xs font-bold uppercase py-2 text-center rounded-t-sm">Maior Segurança (Best Seller)</span>
-                        <div class="p-8 pb-4 pt-12">
-                            <h3 class="text-xl font-bold text-gray-900">NETZ Completo</h3>
-                            <p class="text-xs text-[#007BFF] uppercase tracking-wide mt-1">Continuidade & Suporte</p>
-                            <div class="mt-6 flex items-baseline text-gray-900">
-                                <span class="text-sm text-gray-500 mr-1">A partir de</span>
-                                <span class="text-4xl font-exo font-black">R$ 180</span>
+                    <div class="service-card rounded-lg flex flex-col w-full fade-in-element border-[#007BFF] border-2 relative shadow-xl transform md:-translate-y-2" style="transition-delay: 100ms;">
+                        <span class="absolute top-0 right-0 left-0 bg-[#007BFF] text-white text-[10px] font-bold uppercase py-1.5 text-center rounded-t-sm">Maior Segurança (Best Seller)</span>
+                        <div class="p-6 pb-2 pt-10">
+                            <h3 class="text-lg font-bold text-gray-900">NETZ Completo</h3>
+                            <p class="text-[10px] text-[#007BFF] uppercase tracking-wide mt-1">Continuidade & Suporte</p>
+                            <div class="mt-4 flex items-baseline text-gray-900">
+                                <span class="text-xs text-gray-500 mr-1">A partir de</span>
+                                <span class="text-3xl font-exo font-black">R$ 180</span>
                             </div>
-                            <p class="text-xs text-gray-400 mt-2">/computador /mês</p>
                         </div>
-                        <div class="px-8 pb-8">
-                            <ul class="space-y-3 text-sm text-gray-700 mt-4 mb-8 font-medium">
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#39FF14]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg> <strong>Tudo do Essencial +</strong></li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Suporte Remoto Ilimitado*</li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Backup em Nuvem Gerenciado</li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Testes de Restauração</li>
+                        <div class="px-6 pb-6">
+                            <ul class="space-y-2 text-xs text-gray-700 mt-2 mb-6 font-medium">
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#39FF14]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg> <strong>Tudo do Essencial +</strong></li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Suporte Remoto Ilimitado*</li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Backup em Nuvem Gerenciado</li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Testes de Restauração</li>
                             </ul>
-                            <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Completo')" class="w-full block bg-[#007BFF] text-white font-bold py-3 rounded-md hover:bg-blue-600 transition shadow-lg text-sm">Contratar Completo</button>
+                            <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Completo')" class="w-full block bg-[#007BFF] text-white font-bold py-2.5 rounded-md hover:bg-blue-600 transition shadow-lg text-xs">Contratar Completo</button>
                         </div>
                     </div>
 
                     <!-- Plano 3: Estratégico -->
                     <div class="service-card rounded-lg flex flex-col w-full fade-in-element hover:border-gray-300" style="transition-delay: 200ms;">
-                        <div class="p-8 pb-4">
-                            <h3 class="text-xl font-bold text-gray-900">NETZ Estratégico</h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">Consultoria & CTO as a Service</p>
-                            <div class="mt-6 flex items-baseline text-gray-900">
-                                <span class="text-sm text-gray-500 mr-1">A partir de</span>
+                        <div class="p-6 pb-2">
+                            <h3 class="text-lg font-bold text-gray-900">NETZ Estratégico</h3>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-wide mt-1">Consultoria & CTO as a Service</p>
+                            <div class="mt-4 flex items-baseline text-gray-900">
+                                <span class="text-xs text-gray-500 mr-1">A partir de</span>
                                 <span class="text-3xl font-exo font-black">R$ 300</span>
                             </div>
-                            <p class="text-xs text-gray-400 mt-2">/computador /mês + Setup</p>
                         </div>
-                        <div class="px-8 pb-8">
-                            <ul class="space-y-3 text-sm text-gray-600 mt-4 mb-8">
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> <strong>Tudo do Completo +</strong></li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Gestão de Fornecedores</li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Visitas Presenciais Inclusas</li>
-                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Consultoria de Planejamento</li>
+                        <div class="px-6 pb-6">
+                            <ul class="space-y-2 text-xs text-gray-600 mt-2 mb-6">
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> <strong>Tudo do Completo +</strong></li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Gestão de Fornecedores</li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Visitas Presenciais Inclusas</li>
+                                <li class="flex items-center gap-2"><svg class="w-3 h-3 text-[#007BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Consultoria de Planejamento</li>
                             </ul>
-                            <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Estratégico')" class="w-full block bg-gray-100 text-gray-700 font-bold py-3 rounded-md hover:bg-gray-200 transition text-sm">Falar com Consultor</button>
+                            <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Estratégico')" class="w-full block bg-gray-100 text-gray-700 font-bold py-2.5 rounded-md hover:bg-gray-200 transition text-xs">Falar com Consultor</button>
                         </div>
                     </div>
 
@@ -343,86 +329,96 @@
             </div>
         </section>
 
-        <!-- Sobre (CEO / História) -->
-        <section id="sobre" class="py-24 bg-white border-t border-gray-100">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16 fade-in-element">
+        <!-- Sobre -->
+        <section id="sobre" class="py-16 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 fade-in-element">
                 <!-- Coluna da Imagem -->
                 <div class="md:w-1/2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-50 group">
+                    <div class="relative rounded-xl overflow-hidden shadow-lg border-2 border-gray-50 group">
                         <!-- Placeholder Image - Replace with Kauan's photo -->
                         <img 
                             src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop" 
                             alt="Kauan Mossini - CEO NETZ" 
                             class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
                         >
-                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
-                            <p class="text-white font-bold text-xl">Kauan Mossini</p>
-                            <p class="text-[#007BFF] font-semibold text-sm uppercase tracking-wide">CEO & Especialista em Infraestrutura</p>
+                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
+                            <p class="text-white font-bold text-lg">Kauan Mossini</p>
+                            <p class="text-[#007BFF] font-semibold text-xs uppercase tracking-wide">CEO & Especialista em Infraestrutura</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Coluna do Texto -->
-                <div class="md:w-1/2 space-y-6">
-                    <h2 class="text-4xl font-poppins font-bold text-gray-900 leading-tight">
+                <div class="md:w-1/2 space-y-4">
+                    <h2 class="text-3xl font-poppins font-bold text-gray-900 leading-tight">
                         Excelência Técnica e Visão de Negócio.<br>
-                        <span class="text-[#007BFF]">Somos seu braço direito estratégico.</span>
+                        <span class="text-[#007BFF]">Seu braço direito estratégico.</span>
                     </h2>
                     
-                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                    <div class="space-y-3 text-gray-600 text-sm leading-relaxed">
                         <p>
                             Fundada por <strong>Kauan Mossini</strong>, a NETZ nasceu em Gramado com uma missão clara: acabar com a TI amadora.
                         </p>
                         <p>
-                            Entendemos que cada minuto parado custa dinheiro para sua empresa. Por isso, abandonamos o modelo antigo de "esperar quebrar para consertar". Nossa obsessão é a <strong>prevenção</strong>. Usamos as mesmas ferramentas de grandes corporações, ajustadas para a realidade da sua empresa.
+                            Abandonamos o modelo "esperar quebrar para consertar". Nossa obsessão é a <strong>prevenção</strong>. Usamos as mesmas ferramentas de grandes corporações, ajustadas para a realidade da sua empresa.
                         </p>
                     </div>
-                    <!-- Ícones de Tech Stack Simbólicos (Centralizados) -->
-                    <div class="pt-8 flex justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" class="h-8 w-auto" alt="Microsoft">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" class="h-8 w-auto" alt="Slack">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" class="h-8 w-auto" alt="Cisco">
+
+                    <!-- Prova Social (Realocada e no Padrão NETZ) + Logos -->
+                    <div class="mt-6 pt-6 border-t border-gray-100 flex flex-col items-center md:items-start w-full">
+                         <!-- Prova Social Estilizada (Padrão NETZ) -->
+                         <div class="flex items-center justify-center gap-3 text-gray-800 font-exo font-bold text-sm mb-6 uppercase tracking-wider">
+                            <span class="text-[#007BFF] text-xl">+ 300</span>
+                            <span class="border-l-2 border-[#007BFF] pl-3">Atendimentos Realizados</span>
+                        </div>
+                        
+                        <!-- Ícones de Parceiros Centralizados na Coluna -->
+                        <div class="w-full flex justify-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" class="h-6 w-auto" alt="Microsoft">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" class="h-6 w-auto" alt="Slack">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" class="h-6 w-auto" alt="Cisco">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="faqs" class="py-20 bg-gray-50">
+        <section id="faqs" class="py-14 bg-gray-50">
             <div class="container mx-auto px-6 max-w-3xl">
-                <div class="text-center mb-12 fade-in-element">
-                    <h2 class="text-3xl font-poppins font-semibold text-gray-900">Dúvidas Frequentes</h2>
+                <div class="text-center mb-10 fade-in-element">
+                    <h2 class="text-2xl font-poppins font-semibold text-gray-900">Dúvidas Frequentes</h2>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-3">
                     <div class="faq-item bg-white rounded-lg fade-in-element border border-gray-200">
-                        <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left hover:bg-gray-50 transition">
-                            <h3 class="text-lg font-semibold text-gray-900">Vocês atendem apenas presencialmente?</h3>
-                            <svg class="w-6 h-6 text-[#007BFF] rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button class="accordion-toggle flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition">
+                            <h3 class="text-sm font-semibold text-gray-900">Vocês atendem apenas presencialmente?</h3>
+                            <svg class="w-5 h-5 text-[#007BFF] rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content">
-                            <div class="px-6 pb-6 text-gray-600">
+                            <div class="px-4 pb-4 text-xs text-gray-600">
                                 <p>Não. 95% dos problemas são resolvidos remotamente em minutos através do nosso software de gestão. Isso é mais rápido para você e mais barato. Visitas presenciais são agendadas para demandas físicas ou estratégicas.</p>
                             </div>
                         </div>
                     </div>
                     <div class="faq-item bg-white rounded-lg fade-in-element border border-gray-200">
-                        <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left hover:bg-gray-50 transition">
-                            <h3 class="text-lg font-semibold text-gray-900">O que acontece se meu servidor parar de madrugada?</h3>
-                            <svg class="w-6 h-6 text-[#007BFF] rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button class="accordion-toggle flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition">
+                            <h3 class="text-sm font-semibold text-gray-900">O que acontece se meu servidor parar de madrugada?</h3>
+                            <svg class="w-5 h-5 text-[#007BFF] rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content">
-                            <div class="px-6 pb-6 text-gray-600">
+                            <div class="px-4 pb-4 text-xs text-gray-600">
                                 <p>Nossos sistemas monitoram 24/7. Muitas vezes, o sistema aplica uma autocorreção automática. Em casos críticos, nossa equipe é notificada imediatamente para agir.</p>
                             </div>
                         </div>
                     </div>
                     <div class="faq-item bg-white rounded-lg fade-in-element border border-gray-200">
-                        <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left hover:bg-gray-50 transition">
-                            <h3 class="text-lg font-semibold text-gray-900">Já tenho um "menino da informática". Por que mudar?</h3>
-                            <svg class="w-6 h-6 text-[#007BFF] rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button class="accordion-toggle flex justify-between items-center w-full p-4 text-left hover:bg-gray-50 transition">
+                            <h3 class="text-sm font-semibold text-gray-900">Já tenho um "menino da informática". Por que mudar?</h3>
+                            <svg class="w-5 h-5 text-[#007BFF] rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="accordion-content">
-                            <div class="px-6 pb-6 text-gray-600">
+                            <div class="px-4 pb-4 text-xs text-gray-600">
                                 <p>O "menino" resolve problemas. Nós criamos estrutura. A NETZ oferece documentação, processos, backup auditado e contratos de nível de serviço (SLA). É a diferença entre amadorismo e profissionalismo.</p>
                             </div>
                         </div>
@@ -432,36 +428,71 @@
         </section>
 
         <!-- Contato -->
-        <section id="contato" class="py-24 bg-white">
+        <section id="contato" class="py-16 bg-white">
             <div class="container mx-auto px-6 max-w-2xl text-center fade-in-element">
-                <h2 class="text-3xl font-poppins font-bold text-gray-900 mb-4">Agende sua Auditoria Inicial</h2>
-                <p class="text-gray-600 mb-10">Vamos descobrir onde estão os gargalos da sua empresa. Sem compromisso.</p>
-                <form id="contact-form" class="space-y-6 text-left">
-                    <input type="text" id="contact-name" name="name" placeholder="Seu nome" class="w-full bg-gray-50 border border-gray-300 rounded-md p-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition" required>
-                    <input type="text" id="contact-company" name="company" placeholder="Nome da sua Empresa" class="w-full bg-gray-50 border border-gray-300 rounded-md p-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition">
-                    <textarea id="problem-description" name="message" placeholder="Qual o maior problema de TI que você enfrenta hoje?" rows="4" class="w-full bg-gray-50 border border-gray-300 rounded-md p-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition" required></textarea>
+                <h2 class="text-2xl font-poppins font-bold text-gray-900 mb-2">Agende sua Auditoria Inicial</h2>
+                <p class="text-gray-600 mb-8 text-sm">Vamos descobrir onde estão os gargalos da sua empresa. Sem compromisso.</p>
+                <form id="contact-form" class="space-y-4 text-left">
+                    <input type="text" id="contact-name" name="name" placeholder="Seu nome" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm" required>
+                    <input type="text" id="contact-company" name="company" placeholder="Nome da sua Empresa" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm">
+                    <textarea id="problem-description" name="message" placeholder="Qual o maior problema de TI que você enfrenta hoje?" rows="3" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm" required></textarea>
                     
-                    <button type="submit" class="w-full bg-[#007BFF] text-white font-bold py-4 px-8 rounded-md text-lg cta-button shadow-lg hover:bg-blue-600">SOLICITAR ANÁLISE</button>
-                    <p class="text-xs text-center text-gray-400 mt-4">Seus dados estão seguros. Não enviamos spam.</p>
+                    <button type="submit" class="w-full bg-[#007BFF] text-white font-bold py-3 px-6 rounded-md text-base cta-button shadow-lg hover:bg-blue-600">SOLICITAR ANÁLISE</button>
+                    <p class="text-[10px] text-center text-gray-400 mt-2">Seus dados estão seguros. Não enviamos spam.</p>
                 </form>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 py-12">
-        <div class="container mx-auto px-6 text-center text-gray-600">
-            <h3 class="text-2xl font-exo font-bold text-gray-900 tracking-widest mb-4">NETZ</h3>
-            <p class="mb-2">CNPJ: 61.088.247/0001-04</p>
-            <p class="mb-6">Gramado - RS | Atendimento Nacional Remoto</p>
-            
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="https://wa.me/555493494999" target="_blank" class="text-gray-500 hover:text-[#007BFF] transition font-medium">WhatsApp</a>
-                <a href="https://instagram.com/netztecnologia" target="_blank" class="text-gray-500 hover:text-[#007BFF] transition font-medium">Instagram</a>
-                <a href="mailto:contato@netz.tec.br" class="text-gray-500 hover:text-[#007BFF] transition font-medium">Email</a>
+    <!-- Footer Estruturado -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-12 text-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                
+                <!-- Coluna 1: Marca & Local -->
+                <div class="md:w-1/3 text-center md:text-left">
+                    <h3 class="text-2xl font-exo font-bold text-gray-900 tracking-widest mb-2">NETZ</h3>
+                    <p class="font-semibold text-gray-700 mb-1">Gramado - RS | Atendimento Nacional</p>
+                    <p class="text-gray-500 mb-4">CNPJ: 61.088.247/0001-04</p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                         <a href="https://instagram.com/netztecnologia" target="_blank" class="text-gray-400 hover:text-[#007BFF] transition">
+                            <!-- Ícone Instagram Corrigido (Simples) -->
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.047-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.185 3.362c.636-.247 1.363-.416 2.427-.465C7.673 2.013 8.028 2 12.315 2zm-1.087.9c-4.116 0-4.606.016-5.467.056-.86.04-1.425.176-1.928.371a3.003 3.003 0 00-1.107.72A3.003 3.003 0 002.006 5.15c-.195.503-.331 1.068-.371 1.928-.04.86-.056 1.35-.056 5.467s.016 4.606.056 5.467c.04.86.176 1.425.371 1.928.2.515.466.93.92 1.385.455.454.87.72 1.385.92.503.195 1.068.331 1.928.371.86.04 1.35.056 5.467.056s4.606-.016 5.467-.056c.86-.04 1.425-.176 1.928-.371.515-.2.93-.466 1.385-.92.454-.455.72-.87.92-1.385.195-.503.331-1.068.371-1.928.04-.86.056-1.35.056-5.467s-.016-4.606-.056-5.467c-.04-.86-.176-1.425-.371-1.928a3.003 3.003 0 00-.72-1.107 3.003 3.003 0 00-1.107-.72c-.503-.195-1.068-.331-1.928-.371-.86-.04-1.35-.056-5.467-.056z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="https://wa.me/555493494999" target="_blank" class="text-gray-400 hover:text-[#007BFF] transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M20.45 3.55A12.083 12.083 0 0012 0C5.373 0 0 5.373 0 12c0 2.115.548 4.195 1.6 6.02L.15 23.85l5.96-1.565A11.967 11.967 0 0012 24c6.627 0 12-5.373 12-12 0-3.205-1.247-6.22-3.55-8.45zM12 21.95a9.92 9.92 0 01-5.06-1.38l-.36-.215-3.76.985.99-3.66-.23-.37A9.88 9.88 0 012.05 12c0-5.485 4.465-9.95 9.95-9.95 2.66 0 5.16 1.035 7.04 2.915a9.885 9.885 0 012.91 7.035c0 5.485-4.465 9.95-9.95 9.95zM17.43 14.38c-.295-.15-1.745-.86-2.015-.96-.27-.095-.465-.15-.66.15-.195.295-.76.96-.93 1.155-.17.195-.34.22-.635.075-1.19-.59-1.975-1.035-2.78-2.42-.21-.365.02-.545.17-.79.13-.215.29-.56.435-.845.145-.29.075-.545-.035-.765-.115-.22-.66-1.595-.905-2.18-.24-.57-.48-.49-.66-.5-.17-.005-.365-.005-.56-.005-.195 0-.515.075-.785.37-.27.295-1.035 1.01-1.035 2.465 0 1.455 1.06 2.86 1.205 3.055.15.195 2.085 3.18 5.05 4.46.705.305 1.255.485 1.69.625.71.23 1.355.195 1.86.12.565-.08 1.745-.71 1.99-1.4.245-.685.245-1.275.17-1.4-.075-.125-.27-.195-.565-.345z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Navegação -->
+                <div class="md:w-1/3 text-center">
+                    <h4 class="font-bold text-gray-900 mb-4">Navegação</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#metodo" class="text-gray-500 hover:text-[#007BFF] transition">Como Trabalhamos</a></li>
+                        <li><a href="#planos" class="text-gray-500 hover:text-[#007BFF] transition">Planos</a></li>
+                        <li><a href="#seguranca" class="text-gray-500 hover:text-[#007BFF] transition">Cibersegurança</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Corporativo -->
+                <div class="md:w-1/3 text-center md:text-right">
+                    <h4 class="font-bold text-gray-900 mb-4">Institucional</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:contato@netz.tec.br" class="text-gray-500 hover:text-[#007BFF] transition">Contato Comercial</a></li>
+                        <li>
+                            <a href="https://linkedin.com" target="_blank" class="flex items-center justify-center md:justify-end gap-2 text-gray-700 font-semibold hover:text-[#007BFF] transition group">
+                                Trabalhe Conosco
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-[#007BFF]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
-            <p class="text-sm text-gray-400">&copy; 2025 NETZ Tecnologia. Todos os direitos reservados.</p>
+            <div class="border-t border-gray-200 mt-10 pt-6 text-center text-xs text-gray-400">
+                &copy; 2025 NETZ Tecnologia. Todos os direitos reservados.
+            </div>
         </div>
     </footer>
 
