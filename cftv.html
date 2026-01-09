@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFTV | Monitoramento de Segurança - NETZ</title>
+
+    <meta name="description" content="Soluções de CFTV profissional para sua empresa. Monitoramento 24/7, gravação em alta definição e integração com sistemas de segurança.">
+    <!-- Favicon placeholders -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Exo+2:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFFFF;
+            color: #374151;
+        }
+        .font-exo { font-family: 'Exo 2', sans-serif; }
+
+        /* Hero com gradiente "Tech" sutil e imagem de fundo */
+        .hero-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1)), url('https://images.unsplash.com/photo-1558494949-efc5e60dc3a0?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .cta-button { transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -10px rgba(0, 123, 255, 0.6); }
+
+        /* Cards e Elementos Interativos */
+        .service-card, .method-card, .compare-card {
+            border: 1px solid #E5E7EB;
+            background-color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover, .method-card:hover {
+            transform: translateY(-5px);
+            border-color: #007BFF;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- ANIMAÇÕES --- */
+        .fade-in-element {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- Header Fixo -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo Limpa -->
+            <a href="/" class="text-2xl md:text-3xl font-exo font-bold text-gray-900 tracking-widest flex items-center gap-2">
+                N<span class="text-[#007BFF]">E</span>TZ
+            </a>
+            <nav class="hidden md:flex space-x-6 items-center text-sm font-medium">
+                <a href="/#metodo" class="text-gray-600 hover:text-[#007BFF] transition">Como Trabalhamos</a>
+                <a href="/#seguranca" class="text-gray-600 hover:text-[#007BFF] transition">Cibersegurança</a>
+                <a href="/#comparativo" class="text-gray-600 hover:text-[#007BFF] transition">Por que NETZ</a>
+                <a href="/#planos" class="text-gray-600 hover:text-[#007BFF] transition">Planos</a>
+                <a href="/cftv.html" class="text-gray-600 hover:text-[#007BFF] transition font-bold">CFTV</a>
+                <!-- Botão alterado para Avaliação -->
+                <a href="/#contato" class="bg-[#007BFF] text-white font-bold py-2 px-5 rounded-md cta-button text-sm">Agendar Avaliação</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 absolute w-full top-[60px]">
+            <a href="/#metodo" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Como Trabalhamos</a>
+            <a href="/#seguranca" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Cibersegurança</a>
+            <a href="/#comparativo" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Por que NETZ</a>
+            <a href="/#planos" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Planos</a>
+            <a href="/cftv.html" class="block text-center py-3 text-[#007BFF] font-bold hover:bg-gray-50 border-b border-gray-100">CFTV</a>
+            <a href="/#contato" class="block text-center py-3 text-[#007BFF] font-bold bg-gray-50">Agendar Avaliação</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: CFTV -->
+        <section id="home" class="min-h-[85vh] flex items-center justify-center text-center p-6 hero-bg pt-24">
+            <div class="max-w-4xl fade-in-element is-visible">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#007BFF] text-xs font-bold tracking-widest mb-6 uppercase border border-blue-100">Monitoramento Inteligente 24/7</span>
+                <h1 class="text-4xl md:text-6xl font-exo font-bold text-gray-900 uppercase tracking-wide mb-8 leading-tight">
+                    Veja o que<br><span class="text-[#007BFF]">importa.</span>
+                </h1>
+                
+                <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+                    Sistemas de CFTV profissionais com gravação em alta definição, acesso remoto e integração total com sua infraestrutura de segurança.
+                </p>
+
+                <!-- Botões -->
+                <div class="flex flex-col md:flex-row gap-4 justify-center mb-10">
+                    <a href="#servicos" class="bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button shadow-lg shadow-blue-500/30">Conhecer Soluções</a>
+                    <a href="#contato" class="bg-white text-gray-700 border border-gray-300 font-bold py-3 px-8 rounded-md text-lg hover:bg-gray-50 transition">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: SERVIÇOS DE CFTV -->
+        <section id="servicos" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">Soluções de CFTV</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm">Tecnologia de ponta para monitoramento completo do seu negócio</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- Serviço 1 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">📹</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Câmeras HD/4K</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Câmeras profissionais com resolução em alta definição e visão noturna infravermelha para cobertura 24/7 completa.</p>
+                    </div>
+
+                    <!-- Serviço 2 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 150ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">💾</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Armazenamento Seguro</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Gravação contínua com backup automático. Seus vídeos estão seguros e acessíveis quando você precisa.</p>
+                    </div>
+
+                    <!-- Serviço 3 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">📱</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Acesso Remoto</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Monitore seu negócio de qualquer lugar. Acesso via aplicativo mobile e web com autenticação segura.</p>
+                    </div>
+
+                    <!-- Serviço 4 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 450ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">🤖</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Detecção Inteligente</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">IA integrada detecta movimentos anormais, pessoas não autorizadas e ativa alertas em tempo real.</p>
+                    </div>
+
+                    <!-- Serviço 5 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 600ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">🔗</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Integração Total</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Conecta com seu sistema de TI, controle de acesso e alarmes. Tudo centralizado em um único painel.</p>
+                    </div>
+
+                    <!-- Serviço 6 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 750ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">⚙️</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Manutenção Preventiva</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Monitoramento constante do sistema. Identificamos problemas antes que afetem sua segurança.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: POR QUE ESCOLHER NETZ PARA CFTV -->
+        <section id="diferenciais" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">Por que NETZ para CFTV?</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm">Mais que câmeras. Uma estratégia de segurança integrada.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="fade-in-element">
+                        <div class="flex items-start mb-4">
+                            <svg class="w-6 h-6 text-[#007BFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Expertise em Segurança</h3>
+                                <p class="text-xs text-gray-600 mt-1">Somos MSP com experiência em infraestrutura. CFTV é parte de uma estratégia maior.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 150ms;">
+                        <div class="flex items-start mb-4">
+                            <svg class="w-6 h-6 text-[#007BFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Suporte 24/7</h3>
+                                <p class="text-xs text-gray-600 mt-1">Seu sistema nunca fica desatendido. Monitoramento contínuo e resposta rápida.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 300ms;">
+                        <div class="flex items-start mb-4">
+                            <svg class="w-6 h-6 text-[#007BFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Tecnologia Atualizada</h3>
+                                <p class="text-xs text-gray-600 mt-1">Sempre com as soluções mais modernas em CFTV e inteligência artificial.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 450ms;">
+                        <div class="flex items-start mb-4">
+                            <svg class="w-6 h-6 text-[#007BFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Conformidade Legal</h3>
+                                <p class="text-xs text-gray-600 mt-1">Implementação em conformidade com LGPD e regulamentações de segurança.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: CTA Final -->
+        <section id="contato" class="py-16 bg-[#007BFF] text-white text-center">
+            <div class="container mx-auto px-6 max-w-3xl fade-in-element">
+                <h2 class="text-3xl md:text-4xl font-exo font-bold mb-4">Pronto para Blindar sua Segurança?</h2>
+                <p class="text-blue-100 mb-8 text-lg">Entre em contato conosco para uma avaliação gratuita e descubra como CFTV profissional pode proteger seu negócio.</p>
+                <a href="https://wa.me/5511999999999?text=Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20CFTV%20da%20NETZ" target="_blank" class="inline-block bg-white text-[#007BFF] font-bold py-3 px-8 rounded-md text-lg cta-button">Solicitar Orçamento</a>
+            </div>
+        </section>
+
+        <!-- Voltar para Home -->
+        <section class="py-8 bg-white text-center border-t border-gray-200">
+            <a href="/" class="text-[#007BFF] font-bold hover:underline">← Voltar para a página principal</a>
+        </section>
+    </main>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-element').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
