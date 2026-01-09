@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETZ Estratégico | Consultoria & CTO as a Service - NETZ</title>
+
+    <meta name="description" content="Plano NETZ Estratégico: Consultoria completa, CTO as a Service, gestão de fornecedores e visitas presenciais inclusas.">
+    <!-- Favicon placeholders -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Exo+2:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFFFF;
+            color: #374151;
+        }
+        .font-exo { font-family: 'Exo 2', sans-serif; }
+
+        /* Hero com gradiente "Tech" sutil e imagem de fundo */
+        .hero-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1)), url('https://images.unsplash.com/photo-1558494949-efc5e60dc3a0?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .cta-button { transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -10px rgba(0, 123, 255, 0.6); }
+
+        /* Cards e Elementos Interativos */
+        .service-card, .method-card, .compare-card {
+            border: 1px solid #E5E7EB;
+            background-color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover, .method-card:hover {
+            transform: translateY(-5px);
+            border-color: #007BFF;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- ANIMAÇÕES --- */
+        .fade-in-element {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- Header Fixo -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo Limpa -->
+            <a href="/" class="text-2xl md:text-3xl font-exo font-bold text-gray-900 tracking-widest flex items-center gap-2">
+                N<span class="text-[#007BFF]">E</span>TZ
+            </a>
+            <nav class="hidden md:flex space-x-6 items-center text-sm font-medium">
+                <a href="/#metodo" class="text-gray-600 hover:text-[#007BFF] transition">Como Trabalhamos</a>
+                <a href="/#seguranca" class="text-gray-600 hover:text-[#007BFF] transition">Cibersegurança</a>
+                <a href="/#comparativo" class="text-gray-600 hover:text-[#007BFF] transition">Por que NETZ</a>
+                <a href="/#planos" class="text-gray-600 hover:text-[#007BFF] transition">Planos</a>
+                <a href="/cftv.html" class="text-gray-600 hover:text-[#007BFF] transition">CFTV</a>
+                <!-- Botão alterado para Avaliação -->
+                <a href="/#contato" class="bg-[#007BFF] text-white font-bold py-2 px-5 rounded-md cta-button text-sm">Agendar Avaliação</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 absolute w-full top-[60px]">
+            <a href="/#metodo" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Como Trabalhamos</a>
+            <a href="/#seguranca" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Cibersegurança</a>
+            <a href="/#comparativo" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Por que NETZ</a>
+            <a href="/#planos" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Planos</a>
+            <a href="/cftv.html" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">CFTV</a>
+            <a href="/#contato" class="block text-center py-3 text-[#007BFF] font-bold bg-gray-50">Agendar Avaliação</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: NETZ Estratégico -->
+        <section id="home" class="min-h-[85vh] flex items-center justify-center text-center p-6 hero-bg pt-24">
+            <div class="max-w-4xl fade-in-element is-visible">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#007BFF] text-xs font-bold tracking-widest mb-6 uppercase border border-blue-100">Consultoria & CTO as a Service</span>
+                <h1 class="text-4xl md:text-6xl font-exo font-bold text-gray-900 uppercase tracking-wide mb-8 leading-tight">
+                    NETZ<br><span class="text-[#007BFF]">Estratégico</span>
+                </h1>
+                
+                <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+                    O plano premium. Tudo do Completo + Consultoria estratégica, CTO as a Service, gestão de fornecedores e visitas presenciais inclusas.
+                </p>
+
+                <!-- Botões -->
+                <div class="flex flex-col md:flex-row gap-4 justify-center mb-10">
+                    <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Estratégico')" class="bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button shadow-lg shadow-blue-500/30">Falar com Consultor</button>
+                    <a href="/#contato" class="bg-white text-gray-700 border border-gray-300 font-bold py-3 px-8 rounded-md text-lg hover:bg-gray-50 transition">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: O QUE ESTÁ INCLUÍDO -->
+        <section id="incluido" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">O que está incluído</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm">Transformação digital completa com suporte estratégico</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Recurso 1 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Tudo do Completo</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Monitoramento 24/7, suporte ilimitado, backup gerenciado, testes de restauração e SLA garantido.</p>
+                    </div>
+
+                    <!-- Recurso 2 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 150ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">CTO as a Service</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Tenha um Chief Technology Officer dedicado ao seu negócio. Planejamento estratégico e decisões tecnológicas alinhadas com seus objetivos.</p>
+                    </div>
+
+                    <!-- Recurso 3 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Consultoria Estratégica</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Análise profunda de sua infraestrutura, roadmap tecnológico e recomendações de investimento com ROI calculado.</p>
+                    </div>
+
+                    <!-- Recurso 4 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 450ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.856-1.487M15 10h.01M11 10h.01M7 10h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Gestão de Fornecedores</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Negociamos com seus fornecedores de TI, garantindo melhor custo-benefício e alinhamento com suas necessidades.</p>
+                    </div>
+
+                    <!-- Recurso 5 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 600ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5.217m0 0a1 1 0 00-.564-.243H5a2 2 0 00-2 2v.5"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Visitas Presenciais Inclusas</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Reuniões estratégicas mensais presenciais. Diagnóstico, planejamento e implementação com contato direto.</p>
+                    </div>
+
+                    <!-- Recurso 6 -->
+                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 750ms;">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Relatórios Executivos</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Relatórios mensais detalhados com métricas de negócio, KPIs de TI e recomendações estratégicas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: IDEAL PARA -->
+        <section id="ideal-para" class="py-16 bg-gray-50 border-t border-gray-200">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">Ideal para</h2>
+                    <p class="text-gray-600 text-sm">Empresas que buscam transformação digital completa</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="fade-in-element">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-1">Grandes Empresas</h3>
+                                <p class="text-xs text-gray-600">Que precisam de parceiro estratégico em TI.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 150ms;">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-1">Transformação Digital</h3>
+                                <p class="text-xs text-gray-600">Que buscam modernizar sua infraestrutura.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 300ms;">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-1">Conformidade Regulatória</h3>
+                                <p class="text-xs text-gray-600">Que precisam atender normas e auditorias.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 450ms;">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-1">Crescimento Acelerado</h3>
+                                <p class="text-xs text-gray-600">Que precisam escalar infraestrutura rapidamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: DIFERENCIAL -->
+        <section id="diferencial" class="py-16 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-12 fade-in-element">
+                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">Por que NETZ Estratégico?</h2>
+                    <p class="text-gray-600 text-sm">O que nos diferencia</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="fade-in-element">
+                        <div class="bg-blue-50 rounded-lg p-6 text-center">
+                            <div class="text-3xl font-exo font-bold text-[#007BFF] mb-2">+300</div>
+                            <p class="text-xs text-gray-600">Empresas atendidas</p>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 150ms;">
+                        <div class="bg-blue-50 rounded-lg p-6 text-center">
+                            <div class="text-3xl font-exo font-bold text-[#007BFF] mb-2">24/7</div>
+                            <p class="text-xs text-gray-600">Monitoramento contínuo</p>
+                        </div>
+                    </div>
+
+                    <div class="fade-in-element" style="transition-delay: 300ms;">
+                        <div class="bg-blue-50 rounded-lg p-6 text-center">
+                            <div class="text-3xl font-exo font-bold text-[#007BFF] mb-2">99.5%</div>
+                            <p class="text-xs text-gray-600">SLA garantido</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: PREÇO -->
+        <section id="preco" class="py-16 bg-gray-50 border-t border-gray-200">
+            <div class="container mx-auto px-6 max-w-2xl text-center fade-in-element">
+                <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-4">Investimento</h2>
+                <div class="bg-white rounded-lg p-8 border-2 border-[#007BFF]">
+                    <p class="text-gray-600 text-sm mb-2">A partir de</p>
+                    <div class="text-5xl font-exo font-black text-gray-900 mb-2">R$ 300<span class="text-2xl text-gray-600">/mês</span></div>
+                    <p class="text-xs text-gray-500 mb-6">Por dispositivo gerenciado (valores customizados para grandes empresas)</p>
+                    <p class="text-xs text-gray-600 mb-6">Sem contrato de longa duração. Cancele quando quiser.</p>
+                    <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Estratégico')" class="w-full bg-[#007BFF] text-white font-bold py-3 px-6 rounded-md text-base cta-button shadow-lg hover:bg-blue-600">FALAR COM CONSULTOR</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="py-16 bg-white">
+            <div class="container mx-auto px-6 max-w-2xl text-center fade-in-element">
+                <h2 class="text-2xl font-poppins font-bold text-gray-900 mb-2">Agende sua Auditoria Inicial</h2>
+                <p class="text-gray-600 mb-8 text-sm">Vamos descobrir onde estão os gargalos da sua empresa. Sem compromisso.</p>
+                <form id="contact-form" class="space-y-4 text-left">
+                    <input type="text" id="contact-name" name="name" placeholder="Seu nome" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm" required>
+                    <input type="text" id="contact-company" name="company" placeholder="Nome da sua Empresa" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm">
+                    <textarea id="problem-description" name="message" placeholder="Qual o maior problema de TI que você enfrenta hoje?" rows="3" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm" required></textarea>
+                    
+                    <button type="submit" class="w-full bg-[#007BFF] text-white font-bold py-3 px-6 rounded-md text-base cta-button shadow-lg hover:bg-blue-600">SOLICITAR ANÁLISE</button>
+                    <p class="text-[10px] text-center text-gray-400 mt-2">Seus dados estão seguros. Não enviamos spam.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Estruturado -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-12 text-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                
+                <!-- Coluna 1: Marca & Local -->
+                <div class="md:w-1/3 text-center md:text-left">
+                    <h3 class="text-2xl font-exo font-bold text-gray-900 tracking-widest mb-2">NETZ</h3>
+                    <p class="font-semibold text-gray-700 mb-1">Gramado - RS | Atendimento Nacional</p>
+                    <p class="text-gray-500 mb-4">CNPJ: 61.088.247/0001-04</p>
+                </div>
+
+                <!-- Coluna 2: Links Rápidos -->
+                <div class="md:w-1/3 text-center">
+                    <h4 class="font-bold text-gray-900 mb-3">Links Rápidos</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="/" class="hover:text-[#007BFF] transition">Home</a></li>
+                        <li><a href="/#planos" class="hover:text-[#007BFF] transition">Planos</a></li>
+                        <li><a href="/cftv.html" class="hover:text-[#007BFF] transition">CFTV</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Contato -->
+                <div class="md:w-1/3 text-center md:text-right">
+                    <h4 class="font-bold text-gray-900 mb-3">Contato</h4>
+                    <p class="text-gray-600 mb-2">📧 contato@netz.tec.br</p>
+                    <p class="text-gray-600">📱 WhatsApp: Clique no botão acima</p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500 text-xs">
+                <p>&copy; 2025 NETZ Tecnologia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Fade In Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
+
+        // WhatsApp Button
+        function sendToWhatsapp(message) {
+            const phoneNumber = '5554991234567'; // Substitua pelo número real
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const company = document.getElementById('contact-company').value;
+            const message = document.getElementById('problem-description').value;
+            const fullMessage = `Olá! Meu nome é ${name}. Empresa: ${company}. Problema: ${message}`;
+            sendToWhatsapp(fullMessage);
+        });
+    </script>
+</body>
+
+</html>
