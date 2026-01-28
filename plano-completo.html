@@ -38,19 +38,54 @@
             background-attachment: fixed;
         }
 
-        .cta-button { transition: all 0.3s ease; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -10px rgba(0, 123, 255, 0.6); }
+        /* Gradiente de Azul Netz Profundo */
+        .gradient-netz {
+            background: linear-gradient(135deg, #0055FF 0%, #00A3FF 100%);
+        }
 
-        /* Cards e Elementos Interativos */
-        .service-card, .method-card, .compare-card {
+        /* Efeito Glow em Botões */
+        .glow-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 85, 255, 0.3);
+        }
+        .glow-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 85, 255, 0.6), 0 10px 25px -5px rgba(0, 85, 255, 0.4);
+        }
+
+        /* Cards com Bordas Gradientes */
+        .card-gradient-border {
             border: 1px solid #E5E7EB;
             background-color: #FFFFFF;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .service-card:hover, .method-card:hover {
+        .card-gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0055FF, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card-gradient-border:hover {
             transform: translateY(-5px);
-            border-color: #007BFF;
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+            border-color: #0055FF;
+            box-shadow: 0 15px 40px -10px rgba(0, 85, 255, 0.2);
+        }
+        .card-gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Glassmorphism para Elementos Flutuantes */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* --- ANIMAÇÕES --- */
@@ -59,26 +94,66 @@
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Fundo alternado com padrão sutil */
+        .section-alt {
+            background: linear-gradient(to bottom, #FFFFFF, #F8FAFC);
+            position: relative;
+        }
+        .section-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(0, 85, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        /* Linha decorativa com gradiente */
+        .gradient-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #0055FF, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Badge com estilo premium */
+        .badge-premium {
+            background: linear-gradient(135deg, rgba(0, 85, 255, 0.1), rgba(0, 163, 255, 0.1));
+            border: 1px solid rgba(0, 85, 255, 0.3);
+            color: #0055FF;
+        }
+
+        /* Texto com gradiente */
+        .text-gradient {
+            background: linear-gradient(135deg, #0055FF, #00A3FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
 
 <body class="bg-white">
 
-    <!-- Header Fixo -->
-    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-200">
+    <!-- Header Fixo com Glassmorphism -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-effect border-b border-gray-200">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <!-- Logo Limpa -->
+            <!-- Logo Limpa com Gradiente -->
             <a href="/" class="text-2xl md:text-3xl font-exo font-bold text-gray-900 tracking-widest flex items-center gap-2">
-                N<span class="text-[#007BFF]">E</span>TZ
+                N<span class="text-gradient">E</span>TZ
             </a>
             <nav class="hidden md:flex space-x-6 items-center text-sm font-medium">
-                <a href="/#metodo" class="text-gray-600 hover:text-[#007BFF] transition">Como Trabalhamos</a>
-                <a href="/#seguranca" class="text-gray-600 hover:text-[#007BFF] transition">Cibersegurança</a>
-                <a href="/#comparativo" class="text-gray-600 hover:text-[#007BFF] transition">Por que NETZ</a>
-                <a href="/#planos" class="text-gray-600 hover:text-[#007BFF] transition">Planos</a>
-                <a href="/cftv.html" class="text-gray-600 hover:text-[#007BFF] transition">CFTV</a>
-                <!-- Botão alterado para Avaliação -->
-                <a href="/#contato" class="bg-[#007BFF] text-white font-bold py-2 px-5 rounded-md cta-button text-sm">Agendar Avaliação</a>
+                <a href="/#metodo" class="text-gray-600 hover:text-[#0055FF] transition">Como Trabalhamos</a>
+                <a href="/#seguranca" class="text-gray-600 hover:text-[#0055FF] transition">Cibersegurança</a>
+                <a href="/#comparativo" class="text-gray-600 hover:text-[#0055FF] transition">Por que NETZ</a>
+                <a href="/#planos" class="text-gray-600 hover:text-[#0055FF] transition">Planos</a>
+                <a href="/cftv.html" class="text-gray-600 hover:text-[#0055FF] transition">CFTV</a>
+                <!-- Botão com Glow -->
+                <a href="/#contato" class="gradient-netz text-white font-bold py-2 px-5 rounded-lg glow-button text-sm">Agendar Avaliação</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-gray-900">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -93,17 +168,17 @@
             <a href="/#comparativo" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Por que NETZ</a>
             <a href="/#planos" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">Planos</a>
             <a href="/cftv.html" class="block text-center py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">CFTV</a>
-            <a href="/#contato" class="block text-center py-3 text-[#007BFF] font-bold bg-gray-50">Agendar Avaliação</a>
+            <a href="/#contato" class="block text-center py-3 text-white font-bold bg-gradient-netz">Agendar Avaliação</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section: NETZ Completo -->
-        <section id="home" class="min-h-[85vh] flex items-center justify-center text-center p-6 hero-bg pt-24">
-            <div class="max-w-4xl fade-in-element is-visible">
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#007BFF] text-xs font-bold tracking-widest mb-6 uppercase border border-blue-100">Continuidade & Suporte</span>
+        <section id="home" class="min-h-[85vh] flex items-center justify-center text-center p-6 hero-bg pt-24 relative">
+            <div class="max-w-4xl fade-in-element is-visible relative z-10">
+                <span class="inline-block py-1 px-3 rounded-full badge-premium text-xs font-bold tracking-widest mb-6 uppercase border">Continuidade & Suporte</span>
                 <h1 class="text-4xl md:text-6xl font-exo font-bold text-gray-900 uppercase tracking-wide mb-8 leading-tight">
-                    NETZ<br><span class="text-[#007BFF]">Completo</span>
+                    NETZ<br><span class="text-gradient">Completo</span>
                 </h1>
                 
                 <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
@@ -112,24 +187,25 @@
 
                 <!-- Botões -->
                 <div class="flex flex-col md:flex-row gap-4 justify-center mb-10">
-                    <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Completo')" class="bg-[#007BFF] text-white font-bold py-3 px-8 rounded-md text-lg cta-button shadow-lg shadow-blue-500/30">Contratar Agora</button>
-                    <a href="/#contato" class="bg-white text-gray-700 border border-gray-300 font-bold py-3 px-8 rounded-md text-lg hover:bg-gray-50 transition">Solicitar Orçamento</a>
+                    <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Completo')" class="gradient-netz text-white font-bold py-3 px-8 rounded-lg text-lg glow-button shadow-lg">Contratar Agora</button>
+                    <a href="/#contato" class="bg-white text-gray-700 border-2 border-gray-300 font-bold py-3 px-8 rounded-lg text-lg hover:border-[#0055FF] hover:text-[#0055FF] transition">Solicitar Orçamento</a>
                 </div>
             </div>
         </section>
 
         <!-- Seção: O QUE ESTÁ INCLUÍDO -->
-        <section id="incluido" class="py-16 bg-white">
-            <div class="container mx-auto px-6">
+        <section id="incluido" class="py-16 section-alt relative">
+            <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-12 fade-in-element">
-                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">O que está incluído</h2>
+                    <h2 class="text-2xl md:text-3xl font-exo font-bold text-gray-900 mb-2">O que está incluído</h2>
+                    <div class="gradient-line w-24 mx-auto"></div>
                     <p class="text-gray-600 max-w-2xl mx-auto text-sm">Tudo o que você precisa para garantir continuidade de negócios</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <!-- Recurso 1 -->
-                    <div class="service-card p-6 rounded-xl bg-white fade-in-element">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                    <div class="card-gradient-border p-6 rounded-xl bg-white fade-in-element">
+                        <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 text-[#0055FF] rounded-full flex items-center justify-center mb-4 text-2xl shadow-md border border-blue-200">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Tudo do Essencial</h3>
@@ -137,8 +213,8 @@
                     </div>
 
                     <!-- Recurso 2 -->
-                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 150ms;">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                    <div class="card-gradient-border p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 150ms;">
+                        <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 text-[#0055FF] rounded-full flex items-center justify-center mb-4 text-2xl shadow-md border border-blue-200">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Suporte Remoto Ilimitado</h3>
@@ -146,8 +222,8 @@
                     </div>
 
                     <!-- Recurso 3 -->
-                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 300ms;">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                    <div class="card-gradient-border p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 text-[#0055FF] rounded-full flex items-center justify-center mb-4 text-2xl shadow-md border border-blue-200">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Backup em Nuvem Gerenciado</h3>
@@ -155,8 +231,8 @@
                     </div>
 
                     <!-- Recurso 4 -->
-                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 450ms;">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
+                    <div class="card-gradient-border p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 450ms;">
+                        <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 text-[#0055FF] rounded-full flex items-center justify-center mb-4 text-2xl shadow-md border border-blue-200">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Testes de Restauração</h3>
@@ -164,134 +240,74 @@
                     </div>
 
                     <!-- Recurso 5 -->
-                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 600ms;">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-gradient-border p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 600ms;">
+                        <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 text-[#0055FF] rounded-full flex items-center justify-center mb-4 text-2xl shadow-md border border-blue-200">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Relatórios Periódicos</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">Receba relatórios detalhados sobre a saúde da sua infraestrutura e recomendações de melhoria.</p>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Resposta Rápida</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Problemas críticos são atendidos em até 1 hora. Você não fica esperando.</p>
                     </div>
 
                     <!-- Recurso 6 -->
-                    <div class="service-card p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 750ms;">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center mb-4 text-2xl">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-gradient-border p-6 rounded-xl bg-white fade-in-element" style="transition-delay: 750ms;">
+                        <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-50 to-blue-100 text-[#0055FF] rounded-full flex items-center justify-center mb-4 text-2xl shadow-md border border-blue-200">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Disponibilidade Garantida</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">SLA de 99.5% de uptime. Se não atingirmos, você recebe crédito no próximo mês.</p>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Relatórios Mensais</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">Você recebe relatórios detalhados sobre a saúde da sua infraestrutura.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: IDEAL PARA -->
-        <section id="ideal-para" class="py-16 bg-gray-50 border-t border-gray-200">
-            <div class="container mx-auto px-6 max-w-4xl">
+        <!-- Seção: COMPARATIVO -->
+        <section id="comparativo" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
                 <div class="text-center mb-12 fade-in-element">
-                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">Ideal para</h2>
-                    <p class="text-gray-600 text-sm">Empresas que não podem parar</p>
+                    <h2 class="text-2xl md:text-3xl font-exo font-bold text-gray-900 mb-2">Como se compara</h2>
+                    <div class="gradient-line w-24 mx-auto"></div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="fade-in-element">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Médias Empresas</h3>
-                                <p class="text-xs text-gray-600">Com infraestrutura crítica que não pode ter downtime.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="fade-in-element" style="transition-delay: 150ms;">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Dados Críticos</h3>
-                                <p class="text-xs text-gray-600">Que precisam de backup confiável e recuperação rápida.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="fade-in-element" style="transition-delay: 300ms;">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Suporte Ativo</h3>
-                                <p class="text-xs text-gray-600">Que precisam de suporte ilimitado sem cobranças extras.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="fade-in-element" style="transition-delay: 450ms;">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div class="w-10 h-10 bg-blue-50 text-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Conformidade</h3>
-                                <p class="text-xs text-gray-600">Que precisam de documentação e SLA para auditorias.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção: COMPARAÇÃO -->
-        <section id="comparacao" class="py-16 bg-white">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <div class="text-center mb-12 fade-in-element">
-                    <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-2">Por que NETZ Completo?</h2>
-                    <p class="text-gray-600 text-sm">Comparação com outras soluções</p>
-                </div>
-
-                <div class="overflow-x-auto fade-in-element">
-                    <table class="w-full text-xs border-collapse">
+                <div class="max-w-4xl mx-auto overflow-x-auto">
+                    <table class="w-full text-sm fade-in-element">
                         <thead>
-                            <tr class="border-b-2 border-gray-300">
-                                <th class="text-left py-3 px-4 font-bold text-gray-900">Característica</th>
-                                <th class="text-center py-3 px-4 font-bold text-[#007BFF]">NETZ Completo</th>
-                                <th class="text-center py-3 px-4 font-bold text-gray-600">Essencial</th>
-                                <th class="text-center py-3 px-4 font-bold text-gray-600">Concorrentes</th>
+                            <tr class="border-b-2 border-[#0055FF]">
+                                <th class="text-left py-4 px-4 font-bold text-gray-900">Recurso</th>
+                                <th class="text-center py-4 px-4 font-bold text-gray-900">Essencial</th>
+                                <th class="text-center py-4 px-4 font-bold text-gradient">Completo</th>
+                                <th class="text-center py-4 px-4 font-bold text-gray-900">Estratégico</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="border-b border-gray-200">
-                                <td class="py-3 px-4 text-gray-900 font-medium">Suporte Remoto Ilimitado</td>
-                                <td class="text-center py-3 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-700">Monitoramento 24/7</td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
                             </tr>
-                            <tr class="border-b border-gray-200">
-                                <td class="py-3 px-4 text-gray-900 font-medium">Backup em Nuvem</td>
-                                <td class="text-center py-3 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-700">Suporte Remoto</td>
+                                <td class="text-center py-4 px-4"><span class="text-red-500 font-bold">✕</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓ Ilimitado</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓ Ilimitado</span></td>
                             </tr>
-                            <tr class="border-b border-gray-200">
-                                <td class="py-3 px-4 text-gray-900 font-medium">Testes de Restauração</td>
-                                <td class="text-center py-3 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-700">Backup em Nuvem</td>
+                                <td class="text-center py-4 px-4"><span class="text-red-500 font-bold">✕</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
                             </tr>
-                            <tr class="border-b border-gray-200">
-                                <td class="py-3 px-4 text-gray-900 font-medium">SLA Garantido</td>
-                                <td class="text-center py-3 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-gray-400">Parcial</span></td>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-700">Testes de Restauração</td>
+                                <td class="text-center py-4 px-4"><span class="text-red-500 font-bold">✕</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
                             </tr>
-                            <tr class="border-b border-gray-200">
-                                <td class="py-3 px-4 text-gray-900 font-medium">Relatórios Detalhados</td>
-                                <td class="text-center py-3 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-red-500">✗</span></td>
-                                <td class="text-center py-3 px-4"><span class="text-gray-400">Básico</span></td>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-700">Consultoria Estratégica</td>
+                                <td class="text-center py-4 px-4"><span class="text-red-500 font-bold">✕</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-red-500 font-bold">✕</span></td>
+                                <td class="text-center py-4 px-4"><span class="text-[#39FF14] font-bold">✓</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -299,39 +315,25 @@
             </div>
         </section>
 
-        <!-- Seção: PREÇO -->
-        <section id="preco" class="py-16 bg-gray-50 border-t border-gray-200">
-            <div class="container mx-auto px-6 max-w-2xl text-center fade-in-element">
-                <h2 class="text-2xl md:text-3xl font-poppins font-bold text-gray-900 mb-4">Investimento</h2>
-                <div class="bg-white rounded-lg p-8 border-2 border-[#007BFF]">
-                    <p class="text-gray-600 text-sm mb-2">A partir de</p>
-                    <div class="text-5xl font-exo font-black text-gray-900 mb-2">R$ 180<span class="text-2xl text-gray-600">/mês</span></div>
-                    <p class="text-xs text-gray-500 mb-6">Por dispositivo gerenciado</p>
-                    <p class="text-xs text-gray-600 mb-6">Sem contrato de longa duração. Cancele quando quiser.</p>
-                    <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Completo')" class="w-full bg-[#007BFF] text-white font-bold py-3 px-6 rounded-md text-base cta-button shadow-lg hover:bg-blue-600">CONTRATAR AGORA</button>
+        <!-- Seção: CTA Final -->
+        <section id="contato" class="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white relative overflow-hidden">
+            <!-- Efeito de fundo -->
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#0055FF] to-transparent opacity-5"></div>
+            
+            <div class="container mx-auto px-6 relative z-10 text-center fade-in-element">
+                <h2 class="text-3xl md:text-4xl font-exo font-bold mb-4">Pronto para Começar?</h2>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Contratar o plano NETZ Completo é o primeiro passo para uma infraestrutura segura e confiável.</p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="sendToWhatsapp('Olá, tenho interesse no plano NETZ Completo')" class="gradient-netz text-white font-bold py-3 px-8 rounded-lg glow-button text-lg">Contratar Agora</button>
+                    <a href="/#planos" class="bg-white/20 text-white font-bold py-3 px-8 rounded-lg hover:bg-white/30 transition border border-white/30">Ver Outros Planos</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Contato -->
-        <section id="contato" class="py-16 bg-white">
-            <div class="container mx-auto px-6 max-w-2xl text-center fade-in-element">
-                <h2 class="text-2xl font-poppins font-bold text-gray-900 mb-2">Agende sua Auditoria Inicial</h2>
-                <p class="text-gray-600 mb-8 text-sm">Vamos descobrir onde estão os gargalos da sua empresa. Sem compromisso.</p>
-                <form id="contact-form" class="space-y-4 text-left">
-                    <input type="text" id="contact-name" name="name" placeholder="Seu nome" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm" required>
-                    <input type="text" id="contact-company" name="company" placeholder="Nome da sua Empresa" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm">
-                    <textarea id="problem-description" name="message" placeholder="Qual o maior problema de TI que você enfrenta hoje?" rows="3" class="w-full bg-gray-50 border border-gray-300 rounded-md p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition text-sm" required></textarea>
-                    
-                    <button type="submit" class="w-full bg-[#007BFF] text-white font-bold py-3 px-6 rounded-md text-base cta-button shadow-lg hover:bg-blue-600">SOLICITAR ANÁLISE</button>
-                    <p class="text-[10px] text-center text-gray-400 mt-2">Seus dados estão seguros. Não enviamos spam.</p>
-                </form>
             </div>
         </section>
     </main>
 
-    <!-- Footer Estruturado -->
-    <footer class="bg-gray-50 border-t border-gray-200 py-12 text-sm">
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start gap-8">
                 
@@ -340,73 +342,125 @@
                     <h3 class="text-2xl font-exo font-bold text-gray-900 tracking-widest mb-2">NETZ</h3>
                     <p class="font-semibold text-gray-700 mb-1">Gramado - RS | Atendimento Nacional</p>
                     <p class="text-gray-500 mb-4">CNPJ: 61.088.247/0001-04</p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                         <a href="https://instagram.com/netztecnologia" target="_blank" class="text-gray-400 hover:text-[#0055FF] transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.047-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.185 3.362c.636-.247 1.363-.416 2.427-.465C7.673 2.013 8.028 2 12.315 2zm-1.087.9c-4.116 0-4.606.016-5.467.056-.86.04-1.425.176-1.928.371a3.003 3.003 0 00-1.107.72A3.003 3.003 0 002.006 5.15c-.195.503-.331 1.068-.371 1.928-.04.86-.056 1.35-.056 5.467s.016 4.606.056 5.467c.04.86.176 1.425.371 1.928.2.515.466.93.92 1.385.455.454.87.72 1.385.92.503.195 1.068.331 1.928.371.86.04 1.35.056 5.467.056s4.606-.016 5.467-.056c.86-.04 1.425-.176 1.928-.371.515-.2.93-.466 1.385-.92.454-.455.72-.87.92-1.385.195-.503.331-1.068.371-1.928.04-.86.056-1.35.056-5.467s-.016-4.606-.056-5.467c-.04-.86-.176-1.425-.371-1.928a3.003 3.003 0 00-.72-1.107 3.003 3.003 0 00-1.107-.72c-.503-.195-1.068-.331-1.928-.371-.86-.04-1.35-.056-5.467-.056z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="https://wa.me/555493494999" target="_blank" class="text-gray-400 hover:text-[#0055FF] transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M20.45 3.55A12.083 12.083 0 0012 0C5.373 0 0 5.373 0 12c0 2.115.548 4.195 1.6 6.02L.15 23.85l5.96-1.565A11.967 11.967 0 0012 24c6.627 0 12-5.373 12-12 0-3.205-1.247-6.22-3.55-8.45zM12 21.95a9.92 9.92 0 01-5.06-1.38l-.36-.215-3.76.985.99-3.66-.23-.37A9.88 9.88 0 012.05 12c0-5.485 4.465-9.95 9.95-9.95 2.66 0 5.16 1.035 7.04 2.915a9.885 9.885 0 012.91 7.035c0 5.485-4.465 9.95-9.95 9.95zM17.43 14.38c-.295-.15-1.745-.86-2.015-.96-.27-.095-.465-.15-.66.15-.195.295-.76.96-.93 1.155-.17.195-.34.22-.635.075-1.19-.59-1.975-1.035-2.78-2.42-.21-.365.02-.545.17-.79.13-.215.29-.56.435-.845.145-.29.075-.545-.035-.765-.115-.22-.66-1.595-.905-2.18-.24-.57-.48-.49-.66-.5-.17-.005-.365-.005-.56-.005-.195 0-.515.075-.785.37-.27.295-1.035 1.01-1.035 2.465 0 1.455 1.06 2.86 1.205 3.055.15.195 2.085 3.18 5.05 4.46.705.305 1.255.485 1.69.625.71.23 1.355.195 1.86.12.565-.08 1.745-.71 1.99-1.4.245-.685.245-1.275.17-1.4-.075-.125-.27-.195-.565-.345z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Coluna 2: Links Rápidos -->
+                <!-- Coluna 2: Navegação -->
                 <div class="md:w-1/3 text-center">
-                    <h4 class="font-bold text-gray-900 mb-3">Links Rápidos</h4>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><a href="/" class="hover:text-[#007BFF] transition">Home</a></li>
-                        <li><a href="/#planos" class="hover:text-[#007BFF] transition">Planos</a></li>
-                        <li><a href="/cftv.html" class="hover:text-[#007BFF] transition">CFTV</a></li>
+                    <h4 class="font-bold text-gray-900 mb-4">Navegação</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/#metodo" class="text-gray-500 hover:text-[#0055FF] transition">Como Trabalhamos</a></li>
+                        <li><a href="/#planos" class="text-gray-500 hover:text-[#0055FF] transition">Planos</a></li>
+                        <li><a href="/#seguranca" class="text-gray-500 hover:text-[#0055FF] transition">Cibersegurança</a></li>
+                        <li><a href="/cftv.html" class="text-gray-500 hover:text-[#0055FF] transition">CFTV</a></li>
                     </ul>
                 </div>
 
-                <!-- Coluna 3: Contato -->
+                <!-- Coluna 3: Corporativo -->
                 <div class="md:w-1/3 text-center md:text-right">
-                    <h4 class="font-bold text-gray-900 mb-3">Contato</h4>
-                    <p class="text-gray-600 mb-2">📧 contato@netz.tec.br</p>
-                    <p class="text-gray-600">📱 WhatsApp: Clique no botão acima</p>
+                    <h4 class="font-bold text-gray-900 mb-4">Institucional</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:contato@netz.tec.br" class="text-gray-500 hover:text-[#0055FF] transition">Contato Comercial</a></li>
+                        <li>
+                            <a href="https://linkedin.com" target="_blank" class="flex items-center justify-center md:justify-end gap-2 text-gray-700 font-semibold hover:text-[#0055FF] transition group">
+                                Trabalhe Conosco
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-[#0055FF]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <!-- Copyright -->
-            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500 text-xs">
-                <p>&copy; 2025 NETZ Tecnologia. Todos os direitos reservados.</p>
+            
+            <div class="border-t border-gray-200 mt-10 pt-6 text-center text-xs text-gray-400">
+                &copy; 2025 NETZ Tecnologia. Todos os direitos reservados.
             </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/555493494999" target="_blank" class="group fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <span class="bg-white text-gray-800 text-xs font-bold py-1 px-3 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block">
+            Fale com um Especialista
+        </span>
+        <div class="gradient-netz text-white p-4 rounded-full shadow-2xl hover:shadow-2xl transition-transform hover:scale-110 flex items-center justify-center">
+            <!-- Icone do WhatsApp SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.223l.215.326-1.251 4.561 4.654-1.215.349.197z"/></svg>
+        </div>
+    </a>
+
+    <!-- Scripts de Funcionalidade -->
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Menu Mobile Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
 
-        // Fade In Animation on Scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            // 2. Smooth Scroll com Offset para Header Fixo
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    e.preventDefault(); 
+                    
+                    // Fecha menu mobile ao clicar
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
+            // 3. Header Sombra
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('shadow-md', window.scrollY > 20);
+            });
 
-        // WhatsApp Button
-        function sendToWhatsapp(message) {
-            const phoneNumber = '5554991234567'; // Substitua pelo número real
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-        }
-
-        // Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('contact-name').value;
-            const company = document.getElementById('contact-company').value;
-            const message = document.getElementById('problem-description').value;
-            const fullMessage = `Olá! Meu nome é ${name}. Empresa: ${company}. Problema: ${message}`;
-            sendToWhatsapp(fullMessage);
+            // 4. Animação Fade-in
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-element').forEach((el) => observer.observe(el));
         });
+
+        // Função Global para Botões
+        function sendToWhatsapp(message) {
+             const phone = "555493494999"; 
+             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+             window.open(url, '_blank');
+        }
     </script>
 </body>
-
 </html>
