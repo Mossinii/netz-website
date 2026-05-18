@@ -1,242 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<!doctype html>
+<html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETZ | Segurança Eletrônica de Elite</title>
-
-    <meta name="description" content="NETZ - Câmeras Inteligentes, Monitoramento 24h e Segurança Eletrônica de Alta Performance.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Netz Tecnologia | Soluções Inteligentes em Segurança e TI</title>
+    <meta name="description" content="Soluções profissionais em segurança eletrônica, câmeras inteligentes, infraestrutura de TI e suporte 24/7. Proteção e tecnologia que transformam seu negócio." />
+    <meta name="theme-color" content="#2563EB" />
     
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'netz-dark': '#1F1F20',
-                        'netz-blue': '#2B4C7E',
-                        'netz-blue-light': '#567EBB',
-                        'netz-gray': '#606D80',
-                        'netz-silver': '#DCE0E6',
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'display': ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script
+      defer
+      src="%VITE_ANALYTICS_ENDPOINT%/umami"
+      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+  </body>
 
-    <style>
-        body {
-            background-color: #1F1F20;
-            color: #DCE0E6;
-        }
-
-        .hero-section {
-            background: linear-gradient(rgba(31, 31, 32, 0.7), rgba(31, 31, 32, 0.9)), url('hero-premium.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .nav-glass {
-            background: rgba(31, 31, 32, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(220, 224, 230, 0.05);
-        }
-
-        .premium-card {
-            background: rgba(43, 76, 126, 0.03);
-            border: 1px solid rgba(220, 224, 230, 0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .premium-card:hover {
-            background: rgba(43, 76, 126, 0.08);
-            border-color: rgba(86, 126, 187, 0.3);
-            transform: translateY(-10px);
-        }
-
-        .btn-elite {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .btn-elite::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .btn-elite:hover::before {
-            left: 100%;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .logo-glow {
-            filter: drop-shadow(0 0 15px rgba(86, 126, 187, 0.3));
-        }
-    </style>
-</head>
-
-<body class="antialiased">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-glass py-4">
-        <div class="container mx-auto px-8 flex justify-between items-center">
-            <a href="#home" class="flex items-center">
-                <img src="logo.jpg" alt="NETZ" class="h-10 logo-glow">
-            </a>
-            <div class="hidden md:flex space-x-12 items-center text-xs font-semibold tracking-[0.2em] uppercase">
-                <a href="#solucoes" class="hover:text-netz-blue-light transition-colors">Câmeras</a>
-                <a href="#about" class="hover:text-netz-blue-light transition-colors">Segurança</a>
-                <a href="/cftv.html" class="hover:text-netz-blue-light transition-colors">CFTV</a>
-                <a href="#contato" class="bg-netz-blue text-white px-8 py-3 rounded-sm btn-elite">Solicitar Orçamento</a>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        <!-- Hero -->
-        <section id="home" class="h-screen flex items-center justify-center hero-section px-8">
-            <div class="max-w-6xl w-full">
-                <div class="reveal active">
-                    <span class="text-netz-blue-light font-semibold tracking-[0.3em] uppercase text-xs mb-6 block">Proteção Patrimonial & Monitoramento</span>
-                    <h1 class="text-5xl md:text-8xl font-display font-black text-white leading-tight mb-8">
-                        SEGURANÇA<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-netz-blue-light to-netz-blue">DE ELITE.</span>
-                    </h1>
-                    <p class="text-netz-gray text-lg md:text-xl max-w-2xl mb-12 font-light leading-relaxed">
-                        Câmeras inteligentes, monitoramento 24h e sistemas eletrônicos avançados para quem não aceita menos que a proteção total do seu patrimônio.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-6">
-                        <a href="#contato" class="bg-white text-netz-dark px-12 py-5 font-bold tracking-widest uppercase text-sm btn-elite text-center">Falar com Especialista</a>
-                        <a href="#solucoes" class="border border-netz-gray text-white px-12 py-5 font-bold tracking-widest uppercase text-sm hover:bg-white hover:text-netz-dark transition-all text-center">Nossas Soluções</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Soluções Minimalistas -->
-        <section id="solucoes" class="py-32 bg-netz-dark px-8">
-            <div class="container mx-auto">
-                <div class="mb-24 reveal">
-                    <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6 uppercase">O que fazemos</h2>
-                    <div class="w-20 h-1 bg-netz-blue"></div>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-1">
-                    <div class="premium-card p-12 reveal">
-                        <h3 class="text-netz-blue-light font-bold text-xs tracking-widest uppercase mb-8">01</h3>
-                        <h4 class="text-2xl font-display font-bold text-white mb-6 uppercase">Câmeras de Elite</h4>
-                        <p class="text-netz-gray font-light leading-relaxed">Sistemas Ultra HD com visão noturna e reconhecimento de movimento para vigilância total.</p>
-                    </div>
-                    <div class="premium-card p-12 reveal" style="transition-delay: 0.2s">
-                        <h3 class="text-netz-blue-light font-bold text-xs tracking-widest uppercase mb-8">02</h3>
-                        <h4 class="text-2xl font-display font-bold text-white mb-6 uppercase">Monitoramento 24h</h4>
-                        <p class="text-netz-gray font-light leading-relaxed">Central de inteligência dedicada para proteger sua empresa e residência em tempo real.</p>
-                    </div>
-                    <div class="premium-card p-12 reveal" style="transition-delay: 0.4s">
-                        <h3 class="text-netz-blue-light font-bold text-xs tracking-widest uppercase mb-8">03</h3>
-                        <h4 class="text-2xl font-display font-bold text-white mb-6 uppercase">Alarmes & Acesso</h4>
-                        <p class="text-netz-gray font-light leading-relaxed">Controle de acesso biométrico e alarmes inteligentes integrados ao seu smartphone.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Detalhe Visual -->
-        <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url('tech-detail.jpg')"></section>
-
-        <!-- Expertise -->
-        <section id="about" class="py-32 bg-white text-netz-dark px-8">
-            <div class="container mx-auto flex flex-col md:flex-row items-center gap-20">
-                <div class="md:w-1/2 reveal">
-                    <img src="logo.jpg" alt="NETZ Elite" class="w-full max-w-md mx-auto">
-                </div>
-                <div class="md:w-1/2 reveal">
-                    <h2 class="text-4xl md:text-6xl font-display font-black mb-8 uppercase tracking-tighter">SEGURANÇA REAL.</h2>
-                    <p class="text-netz-gray text-xl font-light leading-relaxed mb-12">
-                        Não vendemos apenas equipamentos. Entregamos tranquilidade através de projetos de segurança eletrônica desenhados sob medida para o seu negócio.
-                    </p>
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 bg-netz-dark text-white flex items-center justify-center font-bold">A</div>
-                            <span class="font-bold tracking-widest uppercase text-sm">Instalação de Alta Performance</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 bg-netz-dark text-white flex items-center justify-center font-bold">B</div>
-                            <span class="font-bold tracking-widest uppercase text-sm">Manutenção Especializada</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 bg-netz-dark text-white flex items-center justify-center font-bold">C</div>
-                            <span class="font-bold tracking-widest uppercase text-sm">Tecnologia de Ponta</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Final -->
-        <section id="contato" class="py-32 bg-netz-dark text-center px-8">
-            <div class="max-w-4xl mx-auto reveal">
-                <h2 class="text-4xl md:text-7xl font-display font-black text-white mb-12 uppercase">PROTEJA SEU PATRIMÔNIO.</h2>
-                <p class="text-netz-gray text-xl mb-16 font-light">Solicite um orçamento agora e tenha o melhor da segurança eletrônica.</p>
-                <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" class="bg-netz-blue text-white px-16 py-6 font-bold tracking-[0.3em] uppercase text-sm btn-elite inline-block">Falar no WhatsApp</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-12 border-t border-white/5 bg-netz-dark px-8">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <img src="logo.jpg" alt="NETZ" class="h-8 opacity-50">
-            <p class="text-netz-gray text-xs tracking-widest uppercase">&copy; 2026 NETZ TECNOLOGIA. ALL RIGHTS RESERVED.</p>
-        </div>
-    </footer>
-
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
-</body>
 </html>
