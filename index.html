@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETZ | Soluções em Tecnologia</title>
+    <title>NETZ | Infraestrutura & Cibersegurança Corporativa</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,8 +13,8 @@
                 extend: {
                     colors: {
                         netzBg: '#05070B',
-                        netzCard: '#0E1420',
-                        netzCardHover: '#131B2E',
+                        netzCard: '#0B0F17',
+                        netzCardHover: '#111827',
                         netzBlue: '#007BFF',
                         netzNeon: '#39FF14',
                     }
@@ -22,199 +22,225 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #05070B; color: #F3F4F6; }
-        .glow-blue { box-shadow: 0 0 25px -5px rgba(0, 123, 255, 0.4); }
-        .glow-neon { box-shadow: 0 0 20px -5px rgba(57, 255, 20, 0.3); }
-        .circuit-bg { background-image: radial-gradient(circle at 50% 0%, rgba(0, 123, 255, 0.08) 0%, transparent 60%); }
+        body { font-family: 'Inter', sans-serif; background-color: #05070B; color: #E5E7EB; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glow-blue { box-shadow: 0 0 20px -4px rgba(0, 123, 255, 0.3); }
+        .glow-neon { box-shadow: 0 0 15px -4px rgba(57, 255, 20, 0.2); }
+        .grid-pattern { background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 32px 32px; }
     </style>
 </head>
-<body class="antialiased selection:bg-netzBlue selection:text-white circuit-bg min-h-screen flex flex-col justify-between">
+<body class="antialiased selection:bg-netzBlue selection:text-white grid-pattern min-h-screen flex flex-col justify-between">
 
-    <!-- HEADER / NAVBAR FIXA -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#05070B]/90 border-b border-gray-800/80">
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#05070B]/90 border-b border-gray-800/80">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             
-            <!-- LOGO DA NETZ (Com a identidade visual do Instagram) -->
+            <!-- LOGO NETZ -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="mudarAba('home')">
-                <div class="relative w-10 h-10 rounded-full p-[1px] bg-gradient-to-r from-netzBlue to-netzNeon glow-blue">
-                    <img src="assets/logo.png" alt="NETZ" class="w-full h-full object-cover rounded-full bg-netzBg" onerror="this.src='https://via.placeholder.com/40/0E1420/007BFF?text=N'">
+                <div class="w-10 h-10 rounded-xl bg-netzCard border border-netzBlue/40 flex items-center justify-center glow-blue overflow-hidden">
+                    <!-- Tentativa de carregar a logo do assets, se falhar exibe o N vetorial -->
+                    <img src="assets/logo.png" alt="NETZ" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <span class="text-netzBlue font-extrabold text-lg font-mono hidden">N.</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-xl font-extrabold tracking-wider text-white">NETZ<span class="text-netzBlue">.</span></span>
-                    <span class="text-[9px] tracking-widest uppercase text-gray-400 font-semibold">Tecnologia que protege</span>
+                    <span class="text-lg font-extrabold tracking-wider text-white">NETZ<span class="text-netzBlue">.</span></span>
+                    <span class="text-[9px] tracking-widest uppercase text-gray-400 font-mono">Infra & Segurança</span>
                 </div>
             </div>
             
-            <!-- ABAS DE NAVEGAÇÃO INTERNA (SEM ABRIR OUTRA GUIA) -->
-            <nav class="hidden md:flex items-center space-x-2 bg-netzCard/60 border border-gray-800/80 p-1.5 rounded-xl">
-                <button onclick="mudarAba('home')" id="btn-home" class="px-5 py-2 rounded-lg text-xs font-semibold transition bg-netzBlue text-white glow-blue">Home</button>
-                <button onclick="mudarAba('cftv')" id="btn-cftv" class="px-5 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/50">CFTV & IA</button>
-                <button onclick="mudarAba('redes')" id="btn-redes" class="px-5 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/50">Redes & Infra</button>
-                <button onclick="mudarAba('sobre')" id="btn-sobre" class="px-5 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/50">Sobre</button>
+            <!-- ABAS DE NAVEGAÇÃO -->
+            <nav class="hidden md:flex items-center space-x-1 bg-netzCard border border-gray-800 p-1 rounded-xl">
+                <button onclick="mudarAba('home')" id="btn-home" class="px-4 py-2 rounded-lg text-xs font-semibold transition bg-netzBlue text-white glow-blue">Home</button>
+                <button onclick="mudarAba('ecossistema')" id="btn-ecossistema" class="px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/40">Ecossistema</button>
+                <button onclick="mudarAba('solucoes')" id="btn-solucoes" class="px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/40">Soluções</button>
+                <button onclick="mudarAba('cases')" id="btn-cases" class="px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/40">Cases & Padrão</button>
             </nav>
 
-            <!-- CTA CONTATO -->
-            <div class="flex items-center space-x-4">
-                <a href="https://wa.me/555493494999?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20infraestrutura." target="_blank" class="bg-netzBlue hover:bg-blue-600 text-white font-semibold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition glow-blue flex items-center space-x-2">
-                    <span>WhatsApp</span>
+            <!-- CTA WHATSAPP -->
+            <div>
+                <a href="https://wa.me/555493494999?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20a%20engenharia." target="_blank" class="bg-netzBlue hover:bg-blue-600 text-white font-semibold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition glow-blue flex items-center space-x-2">
+                    <span>Falar com Especialista</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- CONTEÚDO DINÂMICO (AS ABAS) -->
+    <!-- CONTEÚDO DAS ABAS -->
     <main class="flex-grow">
 
         <!-- ================= ABA 1: HOME ================= -->
-        <section id="aba-home" class="tab-content relative pt-16 pb-28">
+        <section id="aba-home" class="tab-content py-20">
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2.5 bg-netzCard border border-netzBlue/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-netzBlue">
-                        <span class="w-2 h-2 rounded-full bg-netzNeon animate-ping"></span>
-                        <span class="tracking-wide uppercase text-[11px]">Infraestrutura de Elite • Gramado & Serra Gaúcha</span>
+                    <div class="inline-flex items-center space-x-2 bg-netzCard border border-netzBlue/30 px-3.5 py-1.5 rounded-full text-xs font-mono text-netzBlue">
+                        <span class="w-2 h-2 rounded-full bg-netzNeon animate-pulse"></span>
+                        <span>SERRA GAÚCHA • GRAMADO & CANELA</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
-                        Tecnologia que <span class="text-transparent bg-clip-text bg-gradient-to-r from-netzBlue via-cyan-400 to-netzNeon">protege</span>, estrutura que <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">transforma</span>.
+                        Sua operação não pode parar. <span class="text-transparent bg-clip-text bg-gradient-to-r from-netzBlue to-cyan-400">Nós blindamos sua TI.</span>
                     </h1>
 
-                    <p class="text-lg text-gray-400 max-w-xl font-normal leading-relaxed">
-                        Mais resultados com infraestrutura de elite e suporte corporativo avançado. Conectividade, escalabilidade e segurança rígida blindando o seu negócio contra falhas.
+                    <p class="text-base text-gray-400 max-w-xl leading-relaxed">
+                        Esqueça o suporte amador. Entregamos redes de alta performance, segurança avançada, CFTV inteligente e continuidade de negócios para empresas que exigem excelência operacional.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
-                        <button onclick="mudarAba('cftv')" class="bg-netzBlue hover:bg-blue-600 text-white text-center font-semibold text-sm px-8 py-4 rounded-xl transition glow-blue flex items-center justify-center space-x-2">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                        <button onclick="mudarAba('solucoes')" class="bg-netzBlue hover:bg-blue-600 text-white font-semibold text-sm px-7 py-3.5 rounded-xl transition glow-blue flex items-center justify-center space-x-2">
                             <span>Explorar Soluções</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
+                        <button onclick="mudarAba('ecossistema')" class="bg-netzCard hover:bg-netzCardHover border border-gray-800 text-gray-300 font-semibold text-sm px-6 py-3.5 rounded-xl transition">
+                            Ver Ecossistema
+                        </button>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-800/80">
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-800/80 font-mono">
                         <div>
-                            <div class="text-2xl font-bold text-white tracking-tight">24/7</div>
-                            <div class="text-xs text-gray-400 mt-0.5">Proteção Ativa</div>
+                            <div class="text-2xl font-bold text-white">24/7</div>
+                            <div class="text-xs text-gray-500 mt-0.5">Monitoramento Ativo</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-bold text-netzNeon tracking-tight">100%</div>
-                            <div class="text-xs text-gray-400 mt-0.5">Uptime & Performance</div>
+                            <div class="text-2xl font-bold text-netzNeon">100%</div>
+                            <div class="text-xs text-gray-500 mt-0.5">Foco em Uptime</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-bold text-netzBlue tracking-tight">B2B</div>
-                            <div class="text-xs text-gray-400 mt-0.5">Foco Corporativo</div>
+                            <div class="text-2xl font-bold text-netzBlue">B2B</div>
+                            <div class="text-xs text-gray-500 mt-0.5">Corporativo</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Painel de Status Técnico -->
+                <!-- Painel Técnico Lateral -->
                 <div class="lg:col-span-5">
-                    <div class="relative rounded-2xl p-[1px] bg-gradient-to-b from-netzBlue/50 via-gray-800 to-transparent shadow-2xl">
-                        <div class="bg-netzCard rounded-2xl p-7 border border-gray-800/80 space-y-6">
-                            <div class="flex items-center justify-between border-b border-gray-800 pb-4">
-                                <div class="flex items-center space-x-2">
-                                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                                    <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                                    <span class="text-xs text-gray-400 font-mono ml-2">netz-core-node01</span>
-                                </div>
-                                <span class="text-[10px] bg-emerald-500/10 text-netzNeon border border-emerald-500/20 px-2.5 py-1 rounded-full font-mono uppercase">ONLINE</span>
+                    <div class="bg-netzCard border border-gray-800 rounded-2xl p-6 space-y-5 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                            <div class="flex items-center space-x-2 font-mono text-xs text-gray-400">
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                                <span class="ml-2">netz-core-telemetry</span>
                             </div>
-                            <div class="space-y-4 font-mono text-xs">
-                                <div class="bg-netzBg p-3.5 rounded-xl border border-gray-800/80 flex items-center justify-between">
-                                    <span class="text-gray-400">Redes Gerenciadas (Wi-Fi)</span>
-                                    <span class="text-netzBlue font-bold">ESTÁVEL</span>
-                                </div>
-                                <div class="bg-netzBg p-3.5 rounded-xl border border-gray-800/80 flex items-center justify-between">
-                                    <span class="text-gray-400">Perímetro & Firewall</span>
-                                    <span class="text-netzNeon font-bold">BLINDADO</span>
-                                </div>
-                                <div class="bg-netzBg p-3.5 rounded-xl border border-gray-800/80 flex items-center justify-between">
-                                    <span class="text-gray-400">CFTV Inteligente (4K/IA)</span>
-                                    <span class="text-white font-bold">GRAVANDO</span>
-                                </div>
+                            <span class="text-[10px] font-mono bg-emerald-500/10 text-netzNeon border border-emerald-500/20 px-2 py-0.5 rounded">ESTÁVEL</span>
+                        </div>
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="bg-netzBg p-3.5 rounded-xl border border-gray-800 flex justify-between items-center">
+                                <span class="text-gray-400">Redes Gerenciadas (Mesh/Wi-Fi)</span>
+                                <span class="text-netzBlue font-bold">100% Uptime</span>
+                            </div>
+                            <div class="bg-netzBg p-3.5 rounded-xl border border-gray-800 flex justify-between items-center">
+                                <span class="text-gray-400">Firewall & Perímetro</span>
+                                <span class="text-netzNeon font-bold">Ativo / Seguro</span>
+                            </div>
+                            <div class="bg-netzBg p-3.5 rounded-xl border border-gray-800 flex justify-between items-center">
+                                <span class="text-gray-400">CFTV Inteligente (4K / IA)</span>
+                                <span class="text-white font-bold">Online (Gravando)</span>
                             </div>
                         </div>
+                        <p class="text-[11px] text-gray-500 font-mono italic">
+                            "Infraestrutura robusta eliminando pontos únicos de falha no seu negócio."
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= ABA 2: CFTV ================= -->
-        <section id="aba-cftv" class="tab-content hidden relative pt-16 pb-28">
+        <!-- ================= ABA 2: ECOSSISTEMA ================= -->
+        <section id="aba-ecossistema" class="tab-content hidden py-20">
             <div class="max-w-7xl mx-auto px-6 space-y-12">
-                <div class="max-w-3xl space-y-4">
-                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// SEGURANÇA ELETRÔNICA AVANÇADA</span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">CFTV Inteligente & Monitoramento 4K</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        Sistemas de vigilância de alta performance com tecnologia Intelbras. Esqueça imagens borradas ou pontos cegos: entregamos inteligência artificial embarcada para detecção de intrusão e acesso remoto instantâneo.
-                    </p>
+                <div class="max-w-3xl space-y-3">
+                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// PILARES DA EMPRESA</span>
+                    <h2 class="text-3xl font-extrabold text-white tracking-tight">O Ecossistema Tecnológico NETZ</h2>
+                    <p class="text-gray-400 text-sm">Arquitetura integrada para assegurar escalabilidade, redundância e proteção total dos ativos da sua empresa.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-netzCard border border-gray-800 p-7 rounded-2xl space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-netzBlue/10 text-netzBlue flex items-center justify-center font-bold">01</div>
+                        <h3 class="text-lg font-bold text-white">Conectividade de Alta Densidade</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Projetos de rede utilizando equipamentos MikroTik e Ubiquiti UniFi. Balanceamento de carga, failover automático de links e Wi-Fi corporativo sem gargalos.
+                        </p>
+                    </div>
+                    <div class="bg-netzCard border border-gray-800 p-7 rounded-2xl space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-netzBlue/10 text-netzBlue flex items-center justify-center font-bold">02</div>
+                        <h3 class="text-lg font-bold text-white">Segurança Perimetral & CFTV</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Sistemas de vigilância patrimonial avançados com padrão Intelbras, gravação em alta definição e análise inteligente por inteligência artificial.
+                        </p>
+                    </div>
+                    <div class="bg-netzCard border border-gray-800 p-7 rounded-2xl space-y-4">
+                        <div class="w-10 h-10 rounded-lg bg-netzBlue/10 text-netzBlue flex items-center justify-center font-bold">03</div>
+                        <h3 class="text-lg font-bold text-white">Suporte & Gestão Contínua</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Contratos de manutenção preventiva, resposta rápida a incidentes e consultoria estratégica para mitigar riscos antes que virem prejuízo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABA 3: SOLUÇÕES ================= -->
+        <section id="aba-solucoes" class="tab-content hidden py-20">
+            <div class="max-w-7xl mx-auto px-6 space-y-12">
+                <div class="max-w-3xl space-y-3">
+                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// PORTFÓLIO TÉCNICO</span>
+                    <h2 class="text-3xl font-extrabold text-white tracking-tight">Soluções Corporativas Especializadas</h2>
+                    <p class="text-gray-400 text-sm">Engenharia aplicada para eliminar falhas humanas e estruturais no seu negócio.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-netzCard border border-gray-800 p-8 rounded-2xl space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-netzBlue/10 text-netzBlue flex items-center justify-center font-bold text-xl">📷</div>
-                        <h3 class="text-xl font-bold text-white">Câmeras IP vs Analógicas</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Projetamos a infraestrutura ideal para o seu espaço, garantindo resolução cristalina em 4K, gravação redundante e blindagem contra falhas de energia.
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-netzBlue uppercase">Redes & Roteamento</span>
+                            <span class="text-xs font-mono text-gray-500">MikroTik / UniFi</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Infraestrutura de Rede Estruturada</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Organização impecável de racks, identificação por patch panels, passagem de cabos certificada e configuração de redes VLAN segmentadas para separar dados corporativos de convidados.
                         </p>
                     </div>
+
                     <div class="bg-netzCard border border-gray-800 p-8 rounded-2xl space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-netzNeon/10 text-netzNeon flex items-center justify-center font-bold text-xl">🛡️</div>
-                        <h3 class="text-xl font-bold text-white">Inteligência Artificial & Alerta</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Monitoramento com IA capaz de distinguir pessoas e veículos, enviando notificações imediatas direto para o seu smartphone.
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-netzNeon uppercase">Segurança Eletrônica</span>
+                            <span class="text-xs font-mono text-gray-500">Intelbras 4K / IA</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">CFTV Inteligente & Monitoramento</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Implantação de câmeras IP de alta performance com visão noturna colorida, detecção de movimento por IA, armazenamento em NVR seguro e acesso remoto via aplicativo dedicado.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= ABA 3: REDES ================= -->
-        <section id="aba-redes" class="tab-content hidden relative pt-16 pb-28">
+        <!-- ================= ABA 4: CASES & PADRÃO ================= -->
+        <section id="aba-cases" class="tab-content hidden py-20">
             <div class="max-w-7xl mx-auto px-6 space-y-12">
-                <div class="max-w-3xl space-y-4">
-                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// ENGENHARIA DE REDES & INFRA</span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Redes Roteadas com MikroTik e UniFi</h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        Sua operação não pode parar por instabilidade de internet. Montamos racks organizados, balanceamento de links (failover) e Wi-Fi corporativo de alta densidade.
-                    </p>
+                <div class="max-w-3xl space-y-3">
+                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// EXECUÇÃO E AUTORIDADE</span>
+                    <h2 class="text-3xl font-extrabold text-white tracking-tight">Cases de Sucesso & Rigor Técnico</h2>
+                    <p class="text-gray-400 text-sm">Entregas reais com foco em padronização, limpeza visual de racks e alta disponibilidade.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
                     <div class="bg-netzCard border border-gray-800 p-6 rounded-xl space-y-3">
-                        <div class="text-netzBlue font-mono text-xs uppercase">MikroTik RouterOS</div>
-                        <h4 class="text-white font-bold text-lg">Firewall & Roteamento</h4>
-                        <p class="text-gray-400 text-xs leading-relaxed">Controle total de banda, VPNs seguras e gestão de múltiplos links de internet.</p>
+                        <div class="text-netzBlue">#01 // PARQUE DAS NUVENS</div>
+                        <div class="text-white font-bold text-sm">Unificação de Rede via Starlink</div>
+                        <p class="text-gray-400 leading-relaxed font-sans">Restruturação completa de rede, unificando a operação sob conexão de alta performance e reconfiguração de access points de longo alcance.</p>
                     </div>
                     <div class="bg-netzCard border border-gray-800 p-6 rounded-xl space-y-3">
-                        <div class="text-netzBlue font-mono text-xs uppercase">Ubiquiti UniFi</div>
-                        <h4 class="text-white font-bold text-lg">Wi-Fi Corporativo</h4>
-                        <p class="text-gray-400 text-xs leading-relaxed">Cobertura de alta performance sem quedas para centenas de dispositivos simultâneos.</p>
+                        <div class="text-netzNeon">#02 // CORPORATIVO B2B</div>
+                        <div class="text-white font-bold text-sm">Racks de Alta Organização</div>
+                        <p class="text-gray-400 leading-relaxed font-sans">Eliminação de gambiarras em cabeamento estruturado, garantindo manutenção simplificada e resfriamento adequado dos ativos.</p>
                     </div>
                     <div class="bg-netzCard border border-gray-800 p-6 rounded-xl space-y-3">
-                        <div class="text-netzNeon font-mono text-xs uppercase">Racks Estruturados</div>
-                        <h4 class="text-white font-bold text-lg">Organização & Padrão</h4>
-                        <p class="text-gray-400 text-xs leading-relaxed">Cabeçamento certificado, patch panels identificados e estética industrial impecável.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= ABA 4: SOBRE ================= -->
-        <section id="aba-sobre" class="tab-content hidden relative pt-16 pb-28">
-            <div class="max-w-4xl mx-auto px-6 space-y-8">
-                <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// QUEM SOMOS</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">A Autoridade Técnica da NETZ na Serra Gaúcha</h2>
-                <div class="bg-netzCard border border-gray-800 p-8 rounded-2xl space-y-6 text-gray-300 leading-relaxed text-sm">
-                    <p>
-                        A <strong class="text-white">NETZ Tecnologia</strong> nasce com um propósito claro: entregar infraestrutura de TI de nível corporativo para pequenas e médias empresas que exigem excelência, segurança e zero margem para erro.
-                    </p>
-                    <p>
-                        Atuando fortemente em Gramado, Canela e toda a Serra Gaúcha, unimos engenharia de redes avançada, cibersegurança e suporte ágil.
-                    </p>
-                    <div class="pt-4 border-t border-gray-800 font-mono text-xs text-netzBlue">
-                        CNPJ: 61.088.247/0001-04 • Gramado & Canela - RS
+                        <div class="text-netzBlue">#03 // SEGURANÇA 24/7</div>
+                        <div class="text-white font-bold text-sm">Blindagem de Perímetro</div>
+                        <p class="text-gray-400 leading-relaxed font-sans">Instalação de centrais de CFTV redundantes com no-breaks dedicados para manter gravação ativa mesmo em quedas de energia.</p>
                     </div>
                 </div>
             </div>
@@ -222,45 +248,56 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-netzBg border-t border-gray-800/80 py-8">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center space-x-3">
-                <span class="text-sm font-bold text-white">NETZ<span class="text-netzBlue">.</span></span>
-                <span class="text-xs text-gray-500 font-mono">© 2026 NETZ Tecnologia</span>
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-netzCard border-t border-gray-800 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3 md:col-span-2">
+                <div class="flex items-center space-x-2">
+                    <span class="text-base font-extrabold text-white">NETZ<span class="text-netzBlue">.</span></span>
+                    <span class="text-xs text-gray-500 font-mono">Tecnologia que protege, estrutura que transforma.</span>
+                </div>
+                <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                    Especialistas em infraestrutura de redes, cibersegurança e CFTV para empresas na Serra Gaúcha.
+                </p>
             </div>
-            <div class="text-center md:text-right">
-                <p class="text-xs text-gray-400"><a href="https://instagram.com/netztecnologia" target="_blank" class="text-netzBlue hover:underline">@netztecnologia</a>[cite: 13]</p>
+            <div class="space-y-2 font-mono text-xs">
+                <div class="text-white font-bold uppercase tracking-wider">Contato Direto</div>
+                <p class="text-gray-400">WhatsApp: (54) 9349-4999</p>
+                <p class="text-gray-400">Gramado & Canela — RS</p>
             </div>
+            <div class="space-y-2 font-mono text-xs">
+                <div class="text-white font-bold uppercase tracking-wider">Redes Oficiais</div>
+                <p><a href="https://instagram.com/netztecnologia" target="_blank" class="text-netzBlue hover:underline">@netztecnologia</a>[cite: 13]</p>
+                <p class="text-gray-500 mt-2">CNPJ: 61.088.247/0001-04</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 mt-8 border-t border-gray-800/60 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 font-mono">
+            <p>© 2026 NETZ Tecnologia. Todos os direitos reservados.</p>
+            <p class="mt-2 sm:mt-0">Arquitetura de Alta Performance</p>
         </div>
     </footer>
 
-    <!-- SCRIPT DE TROCA DE ABAS INSTANTÂNEA -->
+    <!-- SCRIPT DE NAVEGAÇÃO ENTRE ABAS -->
     <script>
         function mudarAba(abaId) {
-            // Esconde todas as abas
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.add('hidden');
             });
 
-            // Remove o estilo ativo de todos os botões
-            ['home', 'cftv', 'redes', 'sobre'].forEach(id => {
+            ['home', 'ecossistema', 'solucoes', 'cases'].forEach(id => {
                 const btn = document.getElementById('btn-' + id);
                 if (btn) {
-                    btn.className = "px-5 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/50";
+                    btn.className = "px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white hover:bg-gray-800/40";
                 }
             });
 
-            // Mostra a aba selecionada
             document.getElementById('aba-' + abaId).classList.remove('hidden');
 
-            // Ativa o botão correspondente
             const btnAtivo = document.getElementById('btn-' + abaId);
             if (btnAtivo) {
-                btnAtivo.className = "px-5 py-2 rounded-lg text-xs font-semibold transition bg-netzBlue text-white glow-blue";
+                btnAtivo.className = "px-4 py-2 rounded-lg text-xs font-semibold transition bg-netzBlue text-white glow-blue";
             }
 
-            // Rola levemente para o topo da tela
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
