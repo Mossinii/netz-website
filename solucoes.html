@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101c2c" />
     <meta
       name="description"
-      content="Conheça suporte de TI, infraestrutura, cloud, segurança, monitoramento e gestão de TI para empresas da Serra Gaúcha."
+      content="Conheça suporte de TI, infraestrutura, cloud, segurança, CFTV, monitoramento e gestão de TI para empresas da Serra Gaúcha."
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
@@ -14,7 +14,7 @@
     <meta property="og:title" content="Soluções de TI para empresas | NETZ" />
     <meta
       property="og:description"
-      content="Serviços de TI organizados para a realidade da sua empresa."
+      content="Serviços de TI e CFTV organizados para a realidade da sua empresa."
     />
     <meta
       property="og:url"
@@ -151,13 +151,24 @@
           <button
             type="button"
             role="tab"
+            id="tab-cftv"
+            aria-controls="painel-cftv"
+            aria-selected="false"
+            tabindex="-1"
+            data-tab-target="cftv"
+          >
+            CFTV <span>05</span>
+          </button>
+          <button
+            type="button"
+            role="tab"
             id="tab-monitoramento"
             aria-controls="painel-monitoramento"
             aria-selected="false"
             tabindex="-1"
             data-tab-target="monitoramento"
           >
-            Monitoramento <span>05</span>
+            Monitoramento <span>06</span>
           </button>
           <button
             type="button"
@@ -168,7 +179,7 @@
             tabindex="-1"
             data-tab-target="gestao"
           >
-            Gestão de TI <span>06</span>
+            Gestão de TI <span>07</span>
           </button>
         </div>
         <div class="service-panels">
@@ -315,7 +326,7 @@
                 <ul class="check-list">
                   <li>Configuração e acompanhamento de firewalls</li>
                   <li>Proteção de acessos, dispositivos e dados</li>
-                  <li>CFTV e controle perimetral</li>
+                  <li>Apoio à resposta a incidentes de segurança</li>
                   <li>Revisão de pontos de exposição e prioridades</li>
                 </ul>
               </div>
@@ -333,6 +344,47 @@
               target="_blank"
               rel="noopener noreferrer"
               >Conversar sobre segurança <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article
+            class="service-panel"
+            id="painel-cftv"
+            role="tabpanel"
+            aria-labelledby="tab-cftv"
+            data-tab-panel="cftv"
+            tabindex="0"
+            hidden
+          >
+            <h2>Mais visão do ambiente.<br />Mais contexto para agir.</h2>
+            <p class="panel-lede">
+              Um sistema de CFTV bem planejado ajuda a acompanhar áreas, rever
+              ocorrências e organizar o acesso às imagens. A solução considera o
+              espaço físico, a rede e a rotina de cada empresa.
+            </p>
+            <div class="panel-columns">
+              <div>
+                <h3>O que pode entrar no escopo</h3>
+                <ul class="check-list">
+                  <li>Levantamento de áreas e pontos de cobertura</li>
+                  <li>Dimensionamento e posicionamento de câmeras</li>
+                  <li>Gravação e armazenamento conforme a necessidade</li>
+                  <li>Configuração de acesso e manutenção do sistema</li>
+                </ul>
+              </div>
+              <aside class="panel-note">
+                <span class="note-label">A conversa começa por</span>
+                <p>
+                  O espaço, os pontos que precisam de cobertura, a rede
+                  disponível e quem deve acessar as imagens.
+                </p>
+              </aside>
+            </div>
+            <a
+              class="button button-primary"
+              href="https://wa.me/555493494999?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20CFTV%20para%20minha%20empresa."
+              target="_blank"
+              rel="noopener noreferrer"
+              >Conversar sobre CFTV <span aria-hidden="true">↗</span></a
             >
           </article>
           <article

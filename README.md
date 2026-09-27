@@ -14,8 +14,8 @@ Open `http://localhost:4173/`. No package install or build step is required.
 
 ## Pages and source
 
-- `index.html` — homepage with a clickable overview of the six service areas
-- `solucoes.html` — six keyboard-accessible tabs with shareable hash links
+- `index.html` — homepage with a clickable overview of the seven service areas
+- `solucoes.html` — seven keyboard-accessible tabs with shareable hash links
 - `como-funciona.html` — how a first conversation and engagement are structured
 - `sobre.html` — company positioning and regional focus
 - `contato.html` — WhatsApp, Instagram, business details, and common questions
