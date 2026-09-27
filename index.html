@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NETZ | Soluções em Tecnologia</title>
+    <!-- Favicon NETZ -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%230B0F17%22/><text x=%2250%25%22 y=%2254%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFFFFF%22 font-family=%22monospace%22 font-weight=%22bold%22 font-size=%2216%22>N.</text></svg>">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,38 +27,64 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #1E293B; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .clean-shadow { box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); }
+        .clean-shadow { box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04); }
+        
+        /* Animação do carrossel de logos */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Padrão de circuito sutil no fundo */
+        .circuit-pattern {
+            background-image: radial-gradient(#007BFF 0.75px, transparent 0.75px), radial-gradient(#007BFF 0.75px, #F8FAFC 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            background-opacity: 0.03;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-netzBlue selection:text-white min-h-screen flex flex-col justify-between">
 
     <!-- HEADER / NAVBAR -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-netzBorder">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-netzBorder">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             
-            <!-- LOGO NETZ -->
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="mudarSecao('home')">
-                <div class="w-10 h-10 rounded-xl bg-netzDark flex items-center justify-center">
-                    <span class="text-white font-bold font-mono text-base">N.</span>
+            <!-- LOGO NETZ COM IDENTIDADE VISUAL FORTE -->
+            <div class="flex items-center space-x-3.5 cursor-pointer group" onclick="mudarSecao('home')">
+                <div class="w-12 h-12 rounded-2xl bg-netzDark flex items-center justify-center shadow-lg group-hover:scale-105 transition duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent"></div>
+                    <span class="text-white font-extrabold font-mono text-lg relative z-10">N.</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-base font-extrabold tracking-tight text-netzDark">NETZ<span class="text-netzBlue">.</span></span>
-                    <span class="text-[9px] tracking-widest uppercase text-gray-500 font-mono">Soluções em Tecnologia</span>
+                    <div class="flex items-center space-x-1">
+                        <span class="text-xl font-extrabold tracking-tight text-netzDark">NETZ</span>
+                        <span class="w-2 h-2 rounded-full bg-netzBlue"></span>
+                    </div>
+                    <span class="text-[10px] tracking-[0.2em] uppercase text-gray-400 font-mono font-semibold">Soluções em Tecnologia</span>
                 </div>
             </div>
             
             <!-- NAVEGAÇÃO -->
-            <nav class="hidden md:flex items-center space-x-1 bg-gray-100 border border-netzBorder p-1 rounded-xl">
-                <button onclick="mudarSecao('home')" id="nav-home" class="px-4 py-2 rounded-lg text-xs font-semibold transition bg-netzBlue text-white shadow-sm">Início</button>
-                <button onclick="mudarSecao('servicos')" id="nav-servicos" class="px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-600 hover:text-netzDark hover:bg-white/50">Serviços</button>
-                <button onclick="mudarSecao('metodologia')" id="nav-metodologia" class="px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-600 hover:text-netzDark hover:bg-white/50">Metodologia</button>
-                <button onclick="mudarSecao('sobre')" id="nav-sobre" class="px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-600 hover:text-netzDark hover:bg-white/50">Sobre</button>
+            <nav class="hidden md:flex items-center space-x-1 bg-gray-100/80 border border-netzBorder p-1.5 rounded-2xl">
+                <button onclick="mudarSecao('home')" id="nav-home" class="px-5 py-2.5 rounded-xl text-xs font-bold transition bg-netzBlue text-white shadow-sm">Início</button>
+                <button onclick="mudarSecao('servicos')" id="nav-servicos" class="px-5 py-2.5 rounded-xl text-xs font-bold transition text-gray-600 hover:text-netzDark hover:bg-white">Serviços</button>
+                <button onclick="mudarSecao('metodologia')" id="nav-metodologia" class="px-5 py-2.5 rounded-xl text-xs font-bold transition text-gray-600 hover:text-netzDark hover:bg-white">Metodologia</button>
+                <button onclick="mudarSecao('sobre')" id="nav-sobre" class="px-5 py-2.5 rounded-xl text-xs font-bold transition text-gray-600 hover:text-netzDark hover:bg-white">Sobre</button>
             </nav>
 
             <!-- CTA WHATSAPP -->
             <div>
-                <a href="https://wa.me/555493494999?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" class="bg-netzBlue hover:bg-blue-600 text-white font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition shadow-md flex items-center space-x-2">
-                    <span>Falar com um Especialista</span>
+                <a href="https://wa.me/555493494999?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" class="bg-netzBlue hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl transition shadow-lg shadow-blue-500/20 flex items-center space-x-2">
+                    <span>Falar com Especialista</span>
                 </a>
             </div>
         </div>
@@ -66,93 +94,158 @@
     <main class="flex-grow">
 
         <!-- ================= SEÇÃO HERO (INÍCIO) ================= -->
-        <section id="sec-home" class="secao-conteudo py-20 lg:py-28">
-            <div class="max-w-7xl mx-auto px-6 space-y-16">
-                <div class="max-w-3xl space-y-6">
-                    <div class="inline-flex items-center space-x-2 bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-full text-xs font-mono text-netzBlue">
-                        <span class="w-2 h-2 rounded-full bg-netzBlue animate-pulse"></span>
-                        <span>SERRA GAÚCHA • GRAMADO & CANELA</span>
+        <section id="sec-home" class="secao-conteudo py-20 lg:py-28 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 space-y-20">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-8">
+                        <div class="inline-flex items-center space-x-2.5 bg-blue-50 border border-blue-200/60 px-4 py-2 rounded-full text-xs font-mono text-netzBlue font-semibold shadow-sm">
+                            <span class="w-2.5 h-2.5 rounded-full bg-netzBlue animate-ping"></span>
+                            <span>ESPECIALISTAS EM TI & REDES • SERRA GAÚCHA</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-netzDark leading-[1.08]">
+                            Tudo o que sua empresa precisa em <span class="text-netzBlue underline decoration-blue-400/40 decoration-wavy">TI.</span>
+                        </h1>
+
+                        <p class="text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed font-normal">
+                            Do atendimento ao usuário à gestão da infraestrutura, sua empresa conta com uma estrutura de especialistas em vez de fornecedores espalhados.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                            <button onclick="mudarSecao('servicos')" class="bg-netzBlue hover:bg-blue-600 text-white font-bold text-sm px-8.py-4 py-4 rounded-2xl transition shadow-xl shadow-blue-500/25 flex items-center justify-center space-x-3 group">
+                                <span>Conhecer Soluções</span>
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                            <a href="https://wa.me/555493494999?text=Não%20sei%20por%20onde%20começar,%20quero%20indicação%20de%20caminho." target="_blank" class="bg-white hover:bg-gray-50 border border-netzBorder text-gray-700 font-bold text-sm px-8.py-4 py-4 rounded-2xl transition text-center shadow-sm">
+                                Não sei por onde começar?
+                            </a>
+                        </div>
                     </div>
 
-                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-netzDark leading-[1.1]">
-                        Tudo o que sua empresa precisa em <span class="text-netzBlue">TI.</span>
-                    </h1>
-
-                    <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
-                        Do atendimento ao usuário à gestão da infraestrutura, sua empresa conta com uma estrutura de especialistas em vez de fornecedores espalhados.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
-                        <button onclick="mudarSecao('servicos')" class="bg-netzBlue hover:bg-blue-600 text-white font-semibold text-sm px-8 py-4 rounded-xl transition shadow-lg flex items-center justify-center space-x-2">
-                            <span>Conhecer Soluções</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </button>
-                        <a href="https://wa.me/555493494999?text=Não%20sei%20por%20onde%20começar,%20quero%20indicação%20de%20caminho." target="_blank" class="bg-white hover:bg-gray-50 border border-netzBorder text-gray-700 font-semibold text-sm px-8 py-4 rounded-xl transition text-center">
-                            Não sei por onde começar?
-                        </a>
+                    <!-- CARD VISUAL TÉCNICO INTERATIVO NA HERO -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-netzDark text-white p-8 rounded-3xl shadow-2xl relative border border-gray-800 space-y-6">
+                            <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                                </div>
+                                <span class="text-xs font-mono text-gray-400">// NETZ INFRA-CORE</span>
+                            </div>
+                            <div class="space-y-4 font-mono text-xs">
+                                <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800 flex justify-between items-center">
+                                    <span class="text-gray-300">Roteamento Principal (MikroTik)</span>
+                                    <span class="text-green-400 font-bold bg-green-950/50 px-2.5 py-1 rounded-md border border-green-800/50">ESTÁVEL</span>
+                                </div>
+                                <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800 flex justify-between items-center">
+                                    <span class="text-gray-300">Wi-Fi Corporativo (UniFi)</span>
+                                    <span class="text-blue-400 font-bold bg-blue-950/50 px-2.5 py-1 rounded-md border border-blue-800/50">ALTA DENSIDADE</span>
+                                </div>
+                                <div class="bg-gray-900/80 p-4 rounded-xl border border-gray-800 flex justify-between items-center">
+                                    <span class="text-gray-300">CFTV Perimetral & IA</span>
+                                    <span class="text-emerald-400 font-bold bg-emerald-950/50 px-2.5 py-1 rounded-md border border-emerald-800/50">GRAVANDO 4K</span>
+                                </div>
+                            </div>
+                            <div class="pt-2 text-center">
+                                <p class="text-[11px] text-gray-500 font-mono">Monitoramento ativo 24/7 na Serra Gaúcha</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- GRADE DE 6 PILARES (ESTILO HUB SEVEN ADAPTADO NETZ) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                <!-- ================= CARROSSEL DE CLIENTES / PARCEIROS (OPACO E PROFISSIONAL) ================= -->
+                <div class="pt-12 pb-6 border-t border-netzBorder space-y-6">
+                    <p class="text-center text-xs font-mono uppercase tracking-widest text-gray-400 font-bold">Empresas e ambientes que confiam na engenharia NETZ</p>
+                    
+                    <div class="relative overflow-hidden w-full py-4">
+                        <!-- Gradientes nas laterais para efeito fade -->
+                        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none"></div>
+                        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none"></div>
+
+                        <div class="animate-marquee flex items-center space-x-16">
+                            <!-- Bloco de Logos (Duplicado para efeito infinito perfeito) -->
+                            <div class="flex items-center space-x-16 grayscale opacity-40 hover:opacity-80 transition duration-300 shrink-0">
+                                <span class="text-xl font-black font-mono tracking-wider text-netzDark">PARQUE DAS NUVENS</span>
+                                <span class="text-xl font-bold tracking-widest uppercase text-netzDark">SPACE ADVENTURE</span>
+                                <span class="text-xl font-bold tracking-tight text-netzDark font-mono">LUGANO</span>
+                                <span class="text-xl font-extrabold tracking-widest text-netzDark">HOTEL SERRA</span>
+                                <span class="text-xl font-bold tracking-wide text-netzDark font-mono">POUSADA VALE</span>
+                                <span class="text-xl font-black tracking-widest text-netzDark">GRUPO GRAMADO</span>
+                            </div>
+                            <div class="flex items-center space-x-16 grayscale opacity-40 hover:opacity-80 transition duration-300 shrink-0" aria-hidden="true">
+                                <span class="text-xl font-black font-mono tracking-wider text-netzDark">PARQUE DAS NUVENS</span>
+                                <span class="text-xl font-bold tracking-widest uppercase text-netzDark">SPACE ADVENTURE</span>
+                                <span class="text-xl font-bold tracking-tight text-netzDark font-mono">LUGANO</span>
+                                <span class="text-xl font-extrabold tracking-widest text-netzDark">HOTEL SERRA</span>
+                                <span class="text-xl font-bold tracking-wide text-netzDark font-mono">POUSADA VALE</span>
+                                <span class="text-xl font-black tracking-widest text-netzDark">GRUPO GRAMADO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRADE DE 6 PILARES (ESTILO MSP EXECUTIVO) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
                     
                     <!-- Pilar 1 -->
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4 hover:border-netzBlue transition">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4 hover:border-netzBlue transition duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold group-hover:bg-netzBlue group-hover:text-white transition duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         </div>
-                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">SUPORTE DE TI</h3>
-                        <p class="text-lg font-bold text-netzDark">Atendimento Ágil aos Usuários</p>
+                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-extrabold">SUPORTE DE TI</h3>
+                        <p class="text-xl font-bold text-netzDark">Atendimento Ágil aos Usuários</p>
                         <p class="text-gray-600 text-sm leading-relaxed">Resolução de incidentes, suporte helpdesk e on-site sem dor de cabeça para a sua equipe.</p>
                     </div>
 
                     <!-- Pilar 2 -->
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4 hover:border-netzBlue transition">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4 hover:border-netzBlue transition duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold group-hover:bg-netzBlue group-hover:text-white transition duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
                         </div>
-                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">INFRAESTRUTURA</h3>
-                        <p class="text-lg font-bold text-netzDark">Redes & Ambientes Híbridos</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">Servidores robustos, roteamento MikroTik, Wi-Fi corporativo UniFi e estruturação de racks.</p>
+                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-extrabold">INFRAESTRUTURA</h3>
+                        <p class="text-xl font-bold text-netzDark">Redes & Ambientes Híbridos</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Servidores robustos, roteamento MikroTik, Wi-Fi corporativo UniFi e estruturação profissional de racks.</p>
                     </div>
 
                     <!-- Pilar 3 -->
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4 hover:border-netzBlue transition">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h10a4 4 0 004-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4 hover:border-netzBlue transition duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold group-hover:bg-netzBlue group-hover:text-white transition duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h10a4 4 0 004-4M7 10l5 5 5-5M12 15V3"></path></svg>
                         </div>
-                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">CLOUD</h3>
-                        <p class="text-lg font-bold text-netzDark">Ambientes em Nuvem Seguros</p>
+                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-extrabold">CLOUD</h3>
+                        <p class="text-xl font-bold text-netzDark">Ambientes em Nuvem Seguros</p>
                         <p class="text-gray-600 text-sm leading-relaxed">Gestão, suporte e evolução de sistemas em nuvem, backups automáticos e acessos remotos confiáveis.</p>
                     </div>
 
                     <!-- Pilar 4 -->
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4 hover:border-netzBlue transition">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4 hover:border-netzBlue transition duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold group-hover:bg-netzBlue group-hover:text-white transition duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                         </div>
-                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">SEGURANÇA</h3>
-                        <p class="text-lg font-bold text-netzDark">Proteção de Dados & Perímetro</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">Firewalls corporativos, CFTV inteligente Intelbras 4K e blindagem contra vulnerabilidades lógicas e físicas.</p>
+                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-extrabold">SEGURANÇA & CFTV</h3>
+                        <p class="text-xl font-bold text-netzDark">Proteção Perimetral & Dados</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Firewalls corporativos, CFTV inteligente Intelbras em 4K e blindagem contra vulnerabilidades lógicas e físicas.</p>
                     </div>
 
                     <!-- Pilar 5 -->
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4 hover:border-netzBlue transition">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4 hover:border-netzBlue transition duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold group-hover:bg-netzBlue group-hover:text-white transition duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                         </div>
-                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">MONITORAMENTO</h3>
-                        <p class="text-lg font-bold text-netzDark">Acompanhamento Contínuo 24/7</p>
+                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-extrabold">MONITORAMENTO</h3>
+                        <p class="text-xl font-bold text-netzDark">Acompanhamento 24/7</p>
                         <p class="text-gray-600 text-sm leading-relaxed">Vigilância proativa de links, servidores e ativos de rede para identificar falhas antes que parem sua operação.</p>
                     </div>
 
                     <!-- Pilar 6 -->
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4 hover:border-netzBlue transition">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4 hover:border-netzBlue transition duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-netzBlue flex items-center justify-center font-bold group-hover:bg-netzBlue group-hover:text-white transition duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
                         </div>
-                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-bold">GESTÃO DE TI</h3>
-                        <p class="text-lg font-bold text-netzDark">Governança & Melhoria Contínua</p>
+                        <h3 class="text-xs font-mono uppercase tracking-wider text-gray-400 font-extrabold">GESTÃO DE TI</h3>
+                        <p class="text-xl font-bold text-netzDark">Governança & Melhoria Contínua</p>
                         <p class="text-gray-600 text-sm leading-relaxed">Processos estruturados, indicadores claros e planejamento tecnológico estratégico para o seu crescimento.</p>
                     </div>
 
@@ -164,21 +257,21 @@
         <section id="sec-servicos" class="secao-conteudo hidden py-20 lg:py-28 bg-white border-y border-netzBorder">
             <div class="max-w-7xl mx-auto px-6 space-y-16">
                 <div class="max-w-3xl space-y-4">
-                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// ESCOPO COMPLETO</span>
+                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest font-bold">// ESCOPO COMPLETO</span>
                     <h2 class="text-3xl lg:text-4xl font-extrabold text-netzDark tracking-tight">Arquitetura de Serviços para o seu Negócio</h2>
                     <p class="text-gray-600 text-base leading-relaxed">Eliminamos a fragmentação de fornecedores. Entregamos uma operação centralizada, previsível e altamente segura.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-netzLightBg border border-netzBorder p-8 rounded-2xl space-y-4">
-                        <span class="text-xs font-mono text-netzBlue font-bold">REDES & CONECTIVIDADE</span>
+                    <div class="bg-netzLightBg border border-netzBorder p-8 rounded-3xl space-y-4">
+                        <span class="text-xs font-mono text-netzBlue font-bold">// REDES & CONECTIVIDADE</span>
                         <h3 class="text-2xl font-bold text-netzDark">Roteamento Avançado e Wi-Fi de Alta Densidade</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            Implementação de balanceamento de carga, failover automático de links (ISP redundancy), VLANs isoladas e pontos de acesso profissionais com tecnologia MikroTik e Ubiquiti UniFi. Sua equipe e clientes sempre online, sem quedas.
+                            Implementação de balanceamento de carga, failover automático de links, VLANs isoladas e pontos de acesso profissionais com tecnologia MikroTik e Ubiquiti UniFi. Sua equipe e clientes sempre online, sem quedas.
                         </p>
                     </div>
-                    <div class="bg-netzLightBg border border-netzBorder p-8 rounded-2xl space-y-4">
-                        <span class="text-xs font-mono text-netzBlue font-bold">PATRIMÔNIO & SEGURANÇA</span>
+                    <div class="bg-netzLightBg border border-netzBorder p-8 rounded-3xl space-y-4">
+                        <span class="text-xs font-mono text-netzBlue font-bold">// PATRIMÔNIO & SEGURANÇA</span>
                         <h3 class="text-2xl font-bold text-netzDark">CFTV Inteligente & Controle Perimetral</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
                             Sistemas de monitoramento eletrônico Intelbras com gravação em 4K, inteligência artificial para detecção de movimento atípico, no-breaks dedicados e acesso remoto criptografado direto para o gestor.
@@ -192,24 +285,24 @@
         <section id="sec-metodologia" class="secao-conteudo hidden py-20 lg:py-28">
             <div class="max-w-7xl mx-auto px-6 space-y-16">
                 <div class="max-w-3xl space-y-4">
-                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// COMO TRABALHAMOS</span>
+                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest font-bold">// COMO TRABALHAMOS</span>
                     <h2 class="text-3xl lg:text-4xl font-extrabold text-netzDark tracking-tight">Engenharia Limpa e Sem Enrolação</h2>
                     <p class="text-gray-600 text-base leading-relaxed">Processo estruturado para garantir que sua infraestrutura funcione perfeitamente desde o dia um.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4">
-                        <div class="text-netzBlue font-mono font-bold text-lg">01.</div>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4">
+                        <div class="text-netzBlue font-mono font-extrabold text-xl">01.</div>
                         <h3 class="text-xl font-bold text-netzDark">Diagnóstico de Riscos</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Mapeamento completo dos pontos únicos de falha, gargalos de rede e brechas de segurança no seu ambiente atual.</p>
                     </div>
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4">
-                        <div class="text-netzBlue font-mono font-bold text-lg">02.</div>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4">
+                        <div class="text-netzBlue font-mono font-extrabold text-xl">02.</div>
                         <h3 class="text-xl font-bold text-netzDark">Execução Padronizada</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Instalação limpa, organização de racks, crimpagem certificada e configuração de regras rígidas de segurança sem parar sua rotina.</p>
                     </div>
-                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-2xl clean-shadow space-y-4">
-                        <div class="text-netzBlue font-mono font-bold text-lg">03.</div>
+                    <div class="bg-netzCardBg border border-netzBorder p-8 rounded-3xl clean-shadow space-y-4">
+                        <div class="text-netzBlue font-mono font-extrabold text-xl">03.</div>
                         <h3 class="text-xl font-bold text-netzDark">Sustentação Contínua</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Monitoramento ativo 24/7, suporte ágil e governança de TI para acompanhar o crescimento do seu negócio com estabilidade.</p>
                     </div>
@@ -221,7 +314,7 @@
         <section id="sec-sobre" class="secao-conteudo hidden py-20 lg:py-28 bg-white border-y border-netzBorder">
             <div class="max-w-7xl mx-auto px-6 space-y-12">
                 <div class="max-w-3xl space-y-4">
-                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest">// QUEM SOMOS</span>
+                    <span class="text-netzBlue font-mono text-xs uppercase tracking-widest font-bold">// QUEM SOMOS</span>
                     <h2 class="text-3xl lg:text-4xl font-extrabold text-netzDark tracking-tight">Tecnologia que protege, estrutura que transforma.</h2>
                     <p class="text-gray-600 text-base leading-relaxed">
                         A NETZ nasceu para entregar aos pequenos e médios negócios da Serra Gaúcha o padrão de infraestrutura e cibersegurança que antes só grandes corporações possuíam. Foco absoluto em Uptime, segurança física/lógica e eficiência energética.
@@ -233,11 +326,11 @@
     </main>
 
     <!-- FOOTER CORPORATIVO -->
-    <footer class="bg-netzDark text-gray-400 py-16">
+    <footer class="bg-netzDark text-gray-400 py-16 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="space-y-4 md:col-span-2">
                 <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-lg bg-netzBlue flex items-center justify-center">
+                    <div class="w-10 h-10 rounded-xl bg-netzBlue flex items-center justify-center shadow-md">
                         <span class="text-white font-bold font-mono text-sm">N.</span>
                     </div>
                     <span class="text-lg font-bold text-white">NETZ<span class="text-netzBlue">.</span></span>
@@ -257,8 +350,8 @@
                 <p><a href="https://instagram.com/netztecnologia" target="_blank" class="text-netzBlue hover:underline">@netztecnologia</a></p>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 pt-8 mt-12 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 font-mono">
-            <p>© 2026 NETZ Tecnologia. Todos os direitos reservados.</p>
+        <div class="max-w-7xl mx-auto px-6 pt-8 mt-12 border-t border-gray-800/80 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 font-mono">
+            <p>© 2026 NETZ Soluções em Tecnologia. Todos os direitos reservados.</p>
             <p class="mt-2 sm:mt-0">Tecnologia que protege, estrutura que transforma.</p>
         </div>
     </footer>
@@ -273,7 +366,7 @@
             ['home', 'servicos', 'metodologia', 'sobre'].forEach(id => {
                 const navBtn = document.getElementById('nav-' + id);
                 if (navBtn) {
-                    navBtn.className = "px-4 py-2 rounded-lg text-xs font-semibold transition text-gray-600 hover:text-netzDark hover:bg-white/50";
+                    navBtn.className = "px-5 py-2.5 rounded-xl text-xs font-bold transition text-gray-600 hover:text-netzDark hover:bg-white";
                 }
             });
 
@@ -281,7 +374,7 @@
 
             const btnAtivo = document.getElementById('nav-' + secaoId);
             if (btnAtivo) {
-                btnAtivo.className = "px-4 py-2 rounded-lg text-xs font-semibold transition bg-netzBlue text-white shadow-sm";
+                btnAtivo.className = "px-5 py-2.5 rounded-xl text-xs font-bold transition bg-netzBlue text-white shadow-sm";
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
