@@ -1,5 +1,7 @@
-# Official brand files pending
+# NETZ brand assets
 
-The connected repository contained no approved NETZ logo or favicon. Add the official SVG (preferred) or transparent PNG here when supplied. Use the approved file for the site header/footer and create a matching browser-tab favicon; do not treat the temporary text wordmark in the prototype as the official logo.
+- `netz-logo-source.jpeg` — original square logo image supplied by NETZ.
+- `netz-monogram-64.png` — square crop of the upper N monogram, used for the browser tab.
+- `netz-monogram-180.png` — same crop at touch-icon size.
 
-Customer logo assets belong in `../clients/` only after NETZ supplies or approves the files for website use.
+The header and footer display the text wordmark `NETZ` without the monogram. If a clean transparent/vector master is supplied later, replace the raster favicon crops and consider using the vector wordmark in the site header/footer.
