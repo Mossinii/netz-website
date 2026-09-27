@@ -381,6 +381,9 @@ img {
     transform 0.18s var(--ease),
     background 0.18s var(--ease);
 }
+.service-showcase-grid a:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
 .service-showcase-grid a:hover {
   transform: translateY(-2px);
   border-color: rgba(20, 118, 237, 0.45);
@@ -489,6 +492,11 @@ img {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
+}
+@media (min-width: 741px) {
+  .service-grid > .service-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
 }
 .service-card {
   position: relative;
